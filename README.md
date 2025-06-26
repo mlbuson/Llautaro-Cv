@@ -1,62 +1,33 @@
-# Lautaro CV
+# Miguel Lautaro Buson – Web Resume
 
----
+This is the HTML + CSS project for my personal resume.
 
-## 📄 Curriculum Vitae - Miguel Lautaro Buson (Español)
+## 🔗 Live Preview
 
-Este repositorio contiene el **Curriculum Vitae digital** de **Miguel Lautaro Buson**, diseñado en formato web utilizando tecnologías HTML y CSS. Está pensado para ser visualizado públicamente a través de **GitHub Pages**.
+You can view the CV online at:  
+[https://mlbuson.github.io/Llautaro-Cv/](https://mlbuson.github.io/Llautaro-Cv/)
 
-🔗 **Ver online:**  
-[https://mlbuson.github.io/lautaro-CV/](https://mlbuson.github.io/lautaro-CV/)
+## 📁 Structure
 
-### 🔧 Tecnologías utilizadas
+- `index.html`: CV in Spanish.
+- `index-en.html`: CV in English.
+- `styles.css`: Styling for both versions.
+- `assets/`: Contains QR codes for contact methods.
 
-- HTML5
-- CSS3
-- (Opcional) JavaScript básico para interactividad
-- GitHub Pages para despliegue
+## 🚀 How to deploy
 
-### 📌 Estructura del repositorio
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mlbuson/Llautaro-Cv.git
+   ```
 
-```
-lautaro-CV/
-├── index.html
-├── styles.css
-├── images/
-└── README.md
-```
+2. Open `index.html` or `index-en.html` in your browser.
 
----
+3. (Optional) Deploy via GitHub Pages:
+   - Go to your repository settings.
+   - Enable GitHub Pages from the `main` branch.
 
-## 📄 Resume - Miguel Lautaro Buson (English)
+## 🧾 Author
 
-This repository contains the **digital resume** of **Miguel Lautaro Buson**, built using HTML and CSS for online viewing via **GitHub Pages**.
-
-🔗 **View online:**  
-[https://mlbuson.github.io/lautaro-CV/](https://mlbuson.github.io/lautaro-CV/)
-
-### 🔧 Technologies used
-
-- HTML5
-- CSS3
-- (Optional) Basic JavaScript for interactivity
-- GitHub Pages for deployment
-
-### 📁 Repository structure
-
-```
-lautaro-CV/
-├── index.html
-├── styles.css
-├── images/
-└── README.md
-```
-
----
-
-## 📬 Contacto / Contact
-
-**Nombre / Name:** Miguel Lautaro Buson  
-**Email:** busonlautaro@gmail.com  
-**LinkedIn:** [https://www.linkedin.com/in/mlbuson](https://www.linkedin.com/in/mlbuson)  
-**Ubicación / Location:** CABA – Ciudad Autónoma de Buenos Aires
+Miguel Lautaro Buson  
+[LinkedIn](https://linkedin.com/in/mlbuson)
