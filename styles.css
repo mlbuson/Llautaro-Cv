@@ -281,28 +281,47 @@ footer {
     text-align: center;
 }
 
-.qr-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 40px 60px;
-    justify-items: center;
-}
-
-.qr-item {
+/* QR Section Styles */
+.qr-section {
+    margin-top: 30px;
     text-align: center;
 }
 
-.qr-item img {
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+.qr-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
 }
 
-.qr-item p {
-    font-size: 0.9rem;
+.qr-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+.qr-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.qr-card img {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-label {
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.95rem;
 }
 
 .credits {
@@ -314,6 +333,7 @@ footer {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
@@ -327,6 +347,10 @@ footer {
     
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .qr-container {
+        gap: 20px;
     }
 }
 
@@ -351,7 +375,12 @@ footer {
         font-size: 1.2rem;
     }
     
-    .qr-grid {
-        grid-template-columns: 1fr;
+    .qr-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .qr-card {
+        width: 140px;
     }
 }
