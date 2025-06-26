@@ -1,53 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CV - Miguel Lautaro Buson</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Miguel Lautaro Buson</h1>
-            <p class="subtitle">Tech Lead | Software Engineer Java | Angular | React | React Native | Vue</p>
-        </header>
-        <section class="about">
-            <h2>Sobre mí</h2>
-            <p>Tech Lead con más de 10 años de experiencia en desarrollo de software, liderando equipos en entornos críticos como Telecom, IBM, BBVA, ICBC y MetroGas. Especialista en arquitecturas escalables, microservicios, SSO con OAuth2/CyberArk, frontend moderno y despliegues en OpenShift 4. Me enfoco en la calidad técnica, seguridad, eficiencia operativa y evolución tecnológica continua.</p>
-        </section>
-        <section class="contact">
-            <h2>Contacto</h2>
-            <ul>
-                <li>Email: <a href="mailto:busonlautaro@gmail.com">busonlautaro@gmail.com</a></li>
-                <li>Email: <a href="mailto:lautaro.buson@outlook.com">lautaro.buson@outlook.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/miguel-lautaro-buson-7a56a06b/" target="_blank">mlbuson</a></li>
-                <li>Ubicación: CABA – Ciudad Autónoma de Buenos Aires</li>
-                <li>WhatsApp: <a href="https://wa.me/5491132967779" target="_blank">+54 9 11 3296-7779</a></li>
-            </ul>
-        </section>
-        <section class="qr">
-            <h2>Códigos QR</h2>
-            <div class="qr-codes">
-                <div><img src="assets/QR_Email_Gmail.png" alt="QR Gmail"><p>Gmail</p></div>
-                <div><img src="assets/QR_Email_Outlook.png" alt="QR Outlook"><p>Outlook</p></div>
-                <div><img src="assets/QR_LinkedIn.png" alt="QR LinkedIn"><p>LinkedIn</p></div>
-                <div><img src="assets/QR_WhatsApp.png" alt="QR WhatsApp"><p>WhatsApp</p></div>
+    <header>
+        <h1>Miguel Lautaro Buson</h1>
+        <h2>Tech Lead | Software Engineer Java | Angular | React | React Native | Vue</h2>
+    </header>
+
+    <section id="about">
+        <h3>Sobre mí</h3>
+        <p>Tech Lead con más de 10 años de experiencia en desarrollo de software, liderando equipos en entornos críticos como Telecom, IBM, BBVA, ICBC y Metrogas. Especialista en arquitectura escalable, microservicios, SSO con OAuth2/CyberArk, frontend moderno y despliegues en OpenShift 4. Me enfoco en la calidad técnica, seguridad, dirección operativa y evolución tecnológica continua.</p>
+    </section>
+
+    <section id="experience">
+        <h3>Experiencia Profesional</h3>
+        <ul>
+            <li><strong>Telecom Argentina (2021 – Actualidad)</strong><br/>
+                Tech Lead para múltiples microservicios en Java 17 y 21. Migración de motor de reglas, implementación de APIs seguras con OAuth2, trazabilidad completa con Dynatrace, despliegues en OpenShift 4.</li>
+
+            <li><strong>IBM – ICBC (2020 – 2021)</strong><br/>
+                Proyecto YOY. Login en Célula 4, desarrollo con Node.js v14, Angular v11 e Ionic 5. Migración a microservicios, login con redes sociales (Google, Facebook, Apple). Iniciativa de microfrontend para todo el frontend.</li>
+
+            <li><strong>Banco Hipotecario (2015 – 2020)</strong><br/>
+                Desarrollo en Java 8 + Spring (Spring MVC, Spring Security). Monolito con esquema de migración a microservicios. Frontend en PrimeFaces y Angular. Proyecto OfficeBanking para empresas con implementación de eCheq electrónico.</li>
+
+            <li><strong>Accenture – Metrogas (2007 – 2012)</strong><br/>
+                Full Stack con Java 2 → Java 6, JSP, Servlets, Struts 1.x, JSTL, Oracle. Desarrollo de login, visualización de facturas, pagos y reclamos. Migración tecnológica, refactor y modularización. Seguridad con cifrado AES/3DES y hashing SHA.</li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h3>Educación</h3>
+        <ul>
+            <li><strong>Universidad Universitas</strong> – Título de Analista Programador (2009–2013) – Promedio 10</li>
+            <li><strong>EducacionIT y UADE</strong> – Cursos avanzados en Java, .NET, Vue, React, Angular, MongoDB, SQL Server y más</li>
+        </ul>
+    </section>
+
+    <footer>
+        <div class="qr-container">
+            <div class="qr-block">
+                <img src="QR_Email_Gmail.png" alt="QR Gmail"/>
+                <span>Gmail</span>
             </div>
-        </section>
-        <section class="experience">
-            <h2>Experiencia Profesional</h2>
-            <p>[... Experiencia completa será añadida aquí ...]</p>
-        </section>
-        <section class="education">
-            <h2>Educación</h2>
-            <p>[... Educación completa será añadida aquí ...]</p>
-        </section>
-        <footer>
-            <p>CV desplegado con GitHub Pages</p>
-        </footer>
-    </div>
+            <div class="qr-block">
+                <img src="QR_Email_Outlook.png" alt="QR Outlook"/>
+                <span>Outlook</span>
+            </div>
+            <div class="qr-block">
+                <img src="QR_LinkedIn.png" alt="QR LinkedIn"/>
+                <span>LinkedIn</span>
+            </div>
+            <div class="qr-block">
+                <img src="QR_WhatsApp.png" alt="QR WhatsApp"/>
+                <span>WhatsApp</span>
+            </div>
+        </div>
+        <div class="contact">
+            <p><strong>WhatsApp:</strong> +54 9 11 3296-7779</p>
+            <p><strong>Email:</strong> busonlautaro@gmail.com / lautaro.buson@outlook.com</p>
+        </div>
+        <p class="credito">CV desplegado con GitHub Pages</p>
+    </footer>
 </body>
 </html>
