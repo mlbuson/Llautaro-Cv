@@ -1,71 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CV - Miguel Lautaro Buson</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Profesional - Miguel Lautaro Buson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Miguel Lautaro Buson</h1>
-        <h2>Tech Lead | Software Engineer Java | Angular | React | React Native | Vue</h2>
-    </header>
-
-    <section id="about">
-        <h3>Sobre mí</h3>
-        <p>Tech Lead con más de 10 años de experiencia en desarrollo de software, liderando equipos en entornos críticos como Telecom, IBM, BBVA, ICBC y Metrogas. Especialista en arquitectura escalable, microservicios, SSO con OAuth2/CyberArk, frontend moderno y despliegues en OpenShift 4. Me enfoco en la calidad técnica, seguridad, dirección operativa y evolución tecnológica continua.</p>
-    </section>
-
-    <section id="experience">
-        <h3>Experiencia Profesional</h3>
-        <ul>
-            <li><strong>Telecom Argentina (2021 – Actualidad)</strong><br/>
-                Tech Lead para múltiples microservicios en Java 17 y 21. Migración de motor de reglas, implementación de APIs seguras con OAuth2, trazabilidad completa con Dynatrace, despliegues en OpenShift 4.</li>
-
-            <li><strong>IBM – ICBC (2020 – 2021)</strong><br/>
-                Proyecto YOY. Login en Célula 4, desarrollo con Node.js v14, Angular v11 e Ionic 5. Migración a microservicios, login con redes sociales (Google, Facebook, Apple). Iniciativa de microfrontend para todo el frontend.</li>
-
-            <li><strong>Banco Hipotecario (2015 – 2020)</strong><br/>
-                Desarrollo en Java 8 + Spring (Spring MVC, Spring Security). Monolito con esquema de migración a microservicios. Frontend en PrimeFaces y Angular. Proyecto OfficeBanking para empresas con implementación de eCheq electrónico.</li>
-
-            <li><strong>Accenture – Metrogas (2007 – 2012)</strong><br/>
-                Full Stack con Java 2 → Java 6, JSP, Servlets, Struts 1.x, JSTL, Oracle. Desarrollo de login, visualización de facturas, pagos y reclamos. Migración tecnológica, refactor y modularización. Seguridad con cifrado AES/3DES y hashing SHA.</li>
-        </ul>
-    </section>
-
-    <section id="education">
-        <h3>Educación</h3>
-        <ul>
-            <li><strong>Universidad Universitas</strong> – Título de Analista Programador (2009–2013) – Promedio 10</li>
-            <li><strong>EducacionIT y UADE</strong> – Cursos avanzados en Java, .NET, Vue, React, Angular, MongoDB, SQL Server y más</li>
-        </ul>
-    </section>
-
-    <footer>
-        <div class="qr-container">
-            <div class="qr-block">
-                <img src="QR_Email_Gmail.png" alt="QR Gmail"/>
-                <span>Gmail</span>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Miguel Lautaro Buson</h1>
+                <h2>Tech Lead | Software Engineer Java | Angular | React | React Native | Vue</h2>
             </div>
-            <div class="qr-block">
-                <img src="QR_Email_Outlook.png" alt="QR Outlook"/>
-                <span>Outlook</span>
+        </header>
+
+        <main>
+            <section class="summary">
+                <h3><i class="fas fa-user-tie"></i> Perfil Profesional</h3>
+                <p>Tech Lead con más de 10 años de experiencia en desarrollo de software, liderando equipos en entornos críticos para empresas como Telecom, IBM, BBVA, ICBC y MetroGas.</p>
+                <p>Especialista en arquitecturas escalables, microservicios, SSO con OAuth2/CyberArk, frontend moderno y despliegues en OpenShift 4. Enfoque en calidad técnica, seguridad, eficiencia operativa y evolución tecnológica continua.</p>
+            </section>
+
+            <section class="skills">
+                <h3><i class="fas fa-code"></i> Habilidades Técnicas</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-laptop-code"></i> Lenguajes</h4>
+                        <ul>
+                            <li>Java 8/11/17/21</li>
+                            <li>JavaScript/TypeScript</li>
+                            <li>SQL</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-layer-group"></i> Frameworks</h4>
+                        <ul>
+                            <li>Spring Boot 3</li>
+                            <li>Angular 2+</li>
+                            <li>React/React Native</li>
+                            <li>Vue.js</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-project-diagram"></i> Arquitectura</h4>
+                        <ul>
+                            <li>Microservicios</li>
+                            <li>Monolitos Modulares</li>
+                            <li>Event Driven</li>
+                            <li>Microfrontends</li>
+                            <li>Arquitectura Hexagonal</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-server"></i> DevOps</h4>
+                        <ul>
+                            <li>GitLab CI/CD</li>
+                            <li>Jenkins</li>
+                            <li>Docker</li>
+                            <li>OpenShift (OCP4)</li>
+                            <li>Quay</li>
+                            <li>Terraform</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-chart-line"></i> Observabilidad</h4>
+                        <ul>
+                            <li>Dynatrace</li>
+                            <li>SonarQube</li>
+                            <li>Kibana</li>
+                            <li>Grafana</li>
+                            <li>Prometheus</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
+                        <ul>
+                            <li>OAuth 2.0</li>
+                            <li>SAML 2.0</li>
+                            <li>JWT</li>
+                            <li>LDAP</li>
+                            <li>CyberArk</li>
+                            <li>Hashing & Encryption</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience">
+                <h3><i class="fas fa-briefcase"></i> Experiencia Profesional</h3>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <h4>Telecom Argentina – Tech Lead</h4>
+                        <div class="job-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Oct 2022 – Actualidad</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires (Remoto)</span>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Liderazgo técnico para múltiples microservicios desarrollados en Java 17 y 21</li>
+                            <li>Migración de arquitectura monolítica modular a microservicios en OpenShift 4 (OCP4)</li>
+                            <li>Desarrollo del Kafka Consumer (Java 17) para OTs desde SFS</li>
+                            <li>Implementación del microservicio SFS-Mule (Java 21) con autenticación OAuth2 y JWT</li>
+                            <li>Coordinación de despliegues en entornos espejados (Hornos y San Lorenzo)</li>
+                        </ul>
+                        <div class="project">
+                            <h5>Microservicio api-gid:</h5>
+                            <ul>
+                                <li>Autenticación federada con CyberArk + OAuth2/SAML 2.0</li>
+                                <li>Gestión de sesiones y validación JWT</li>
+                                <li>Fallback a LDAP en ambientes habilitados</li>
+                                <li>Integración con FM (Java 11 + JSP + Spring Security personalizado)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <h4>CaleGroup – Tech Lead</h4>
+                        <div class="job-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Jun 2021 – Sep 2022</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires (Remoto)</span>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Migración de plataforma de salud a .NET Core 3.9 + Vue.js</li>
+                            <li>Implementación de videollamadas médico-paciente con OpenVidu</li>
+                            <li>Integración con farmacias para recetas digitales</li>
+                            <li>Geolocalización de profesionales de la salud</li>
+                            <li>Desarrollo de módulo de telemedicina con WebRTC</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <h4>IBM – Tech Lead (Cliente: ICBC – Proyecto YOY)</h4>
+                        <div class="job-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Mar 2020 – May 2021</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Liderazgo técnico en Célula 4: desarrollo del login con redes sociales (Google, Facebook, Apple)</li>
+                            <li>Stack tecnológico: Node.js v14 + Angular v11 + Ionic 5</li>
+                            <li>Migración de servicios a arquitectura de microservicios</li>
+                            <li>Coordinación con células dependientes (PFM, Transacciones)</li>
+                            <li>Diseño inicial de arquitectura microfrontend para todo el frontend</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <h4>BBVA Argentina – Tech Lead</h4>
+                        <div class="job-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Mar 2015 – Mar 2020</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Desarrollo de sistema de desbloqueo por biometría: VeriLook + VeriFinger (React/React Native)</li>
+                            <li>Validación RENAPER (DNI / DNE) con OCR + firma digital</li>
+                            <li>Desarrollo de módulos para seguros y microseguros: Java + Oracle/MongoDB</li>
+                            <li>Migración de GO y Homebanking a arquitectura de microservicios</li>
+                            <li>Implementación de despliegue automatizado con Jenkins + OCP + Terraform</li>
+                            <li>Configuración de pipelines en OCP4 con tests integrados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <h4>Banco Hipotecario – Desarrollador Senior / Tech Lead</h4>
+                        <div class="job-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Abr 2013 – Feb 2015</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Desarrollo backend en Java 8 + Spring MVC + Spring Security + JDBC</li>
+                            <li>Frontend con PrimeFaces + Angular 1.5</li>
+                            <li>Diseño para futura migración a microservicios</li>
+                            <li>Desarrollo de eCheq electrónico para OfficeBanking Empresas</li>
+                            <li>Implementación de módulos de créditos hipotecarios</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <h4>Accenture – Desarrollador de Software (Cliente: MetroGas)</h4>
+                        <div class="job-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Mar 2010 – Mar 2013</span>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Desarrollo del Portal de autogestión MetroGas</li>
+                            <li>Migración de Java 2 (JDK 1.4) a Java 6 (JDK 1.6)</li>
+                            <li>Implementación de funcionalidades: login por DNI, facturación, pagos con tarjeta, reclamos</li>
+                            <li>Refactor de monolito a arquitectura MVC</li>
+                            <li>Implementación de seguridad avanzada: AES/3DES, SHA-1/256, CSRF, anonimización, tokenización</li>
+                            <li>Stack tecnológico: JSP · Struts 1.x · Oracle DB · Apache Tomcat · JBoss · WebLogic</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="education">
+                <h3><i class="fas fa-graduation-cap"></i> Educación y Certificaciones</h3>
+                
+                <div class="education-item">
+                    <h4>Pontificia Universidad Católica Argentina (UCA)</h4>
+                    <div class="education-meta">
+                        <span class="degree">Licenciatura en Sistemas</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> Abr 2019 – Dic 2025 (en curso)</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h4>Universidad Siglo 21</h4>
+                    <div class="education-meta">
+                        <span class="degree">Hacking Ético</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> May 2016 – Abr 2017</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h4>EducacionIT</h4>
+                    <div class="education-meta">
+                        <span class="degree">SQL Server</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> Abr 2014 – Oct 2014</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h4>Universitas</h4>
+                    <div class="education-meta">
+                        <span class="degree">Formación en programación y sistemas</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> 2012 – 2014</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h4>BS Informática</h4>
+                    <div class="education-meta">
+                        <span class="degree">Windows Server 2008</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> 2009 – 2011</span>
+                        <span class="grade">Nota: 9 – Administración, DNS físico y virtual</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h4>Instituto Tecnológico Argentino</h4>
+                    <div class="education-meta">
+                        <span class="degree">Analista Programador</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> 2007 – 2010</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="contact-section">
+                    <h3><i class="fas fa-address-card"></i> Contacto</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> La Plata, Provincia de Buenos Aires</p>
+                        <p><i class="fas fa-mobile-alt"></i> <strong>Teléfono:</strong> +54 9 11 3296 7779</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> busonlautaro@gmail.com</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email alternativo:</strong> lautaro.buson@outlook.com</p>
+                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> linkedin.com/in/mlbuson</p>
+                    </div>
+                </div>
+                
+                <div class="qr-section">
+                    <h3><i class="fas fa-qrcode"></i> Escanear Contacto</h3>
+                    <div class="qr-grid">
+                        <div class="qr-item">
+                            <img src="QR_WhatsApp.png" alt="WhatsApp QR">
+                            <p>WhatsApp</p>
+                        </div>
+                        <div class="qr-item">
+                            <img src="QR_Email_Gmail.png" alt="Gmail QR">
+                            <p>Gmail</p>
+                        </div>
+                        <div class="qr-item">
+                            <img src="QR_Email_Outlook.png" alt="Outlook QR">
+                            <p>Outlook</p>
+                        </div>
+                        <div class="qr-item">
+                            <img src="QR_LinkedIn.png" alt="LinkedIn QR">
+                            <p>LinkedIn</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="qr-block">
-                <img src="QR_LinkedIn.png" alt="QR LinkedIn"/>
-                <span>LinkedIn</span>
+            
+            <div class="credits">
+                <p>CV diseñado con HTML5 y CSS3 | Desplegado con GitHub Pages</p>
+                <p>© 2023 Miguel Lautaro Buson - Todos los derechos reservados</p>
             </div>
-            <div class="qr-block">
-                <img src="QR_WhatsApp.png" alt="QR WhatsApp"/>
-                <span>WhatsApp</span>
-            </div>
-        </div>
-        <div class="contact">
-            <p><strong>WhatsApp:</strong> +54 9 11 3296-7779</p>
-            <p><strong>Email:</strong> busonlautaro@gmail.com / lautaro.buson@outlook.com</p>
-        </div>
-        <p class="credito">CV desplegado con GitHub Pages</p>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>
