@@ -19,8 +19,9 @@
         <main>
             <section class="summary">
                 <h3><i class="fas fa-user-tie"></i> Perfil Profesional</h3>
-                <p>Tech Lead con más de 10 años de experiencia en desarrollo de software, liderando equipos en entornos críticos para empresas como Telecom, IBM, BBVA, ICBC y MetroGas.</p>
-                <p>Especialista en arquitecturas escalables, microservicios, SSO con OAuth2/CyberArk, frontend moderno y despliegues en OpenShift 4. Enfoque en calidad técnica, seguridad, eficiencia operativa y evolución tecnológica continua.</p>
+                <p>Desarrollador en software con más de 10 años de experiencia en desarrollo y 7 años desempeñando el rol de Tech Lead, liderando equipos en entornos críticos y de alta exigencia.</p>
+                <p>Amplia trayectoria en el sector bancario y financiero, participando en proyectos clave para BBVA, ICBC y Banco Hipotecario, así como en empresas líderes como Telecom, IBM.</p>
+                <p>Especialista en arquitecturas modernas orientadas a microservicios, integración de soluciones de seguridad con SSO (OAuth2, CyberArk), desarrollo frontend con frameworks actuales, y despliegue de aplicaciones en OpenShift 4. Enfoque sólido en calidad de código, performance, seguridad y evolución tecnológica continua.</p>
             </section>
 
             <section class="skills">
@@ -31,20 +32,42 @@
                         <ul>
                             <li>Java 8/11/17/21</li>
                             <li>JavaScript/TypeScript</li>
-                            <li>SQL</li>
-                            <li>Python</li>
+                            <li>Node.js</li>
+                            <li>NET Core</li>
                         </ul>
                     </div>
+
                     <div class="skill-category">
                         <h4><i class="fas fa-layer-group"></i> Frameworks</h4>
                         <ul>
                             <li>Spring Boot 3</li>
-                            <li>Angular 2+</li>
+                            <li>Angular </li>
                             <li>React/React Native</li>
                             <li>Vue.js</li>
                             <li>Node.js</li>
+                            <li>JSP</li>
                         </ul>
                     </div>
+
+                    <div class="skill-category">
+                        <h4><i class="fas fa-database"></i> Bases de Datos</h4>
+                        <div class="database-subcategory">
+                            <h5>Relacionales:</h5>
+                            <ul>
+                                <li>Oracle</li>
+                                <li>SQL Server</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+                        <div class="database-subcategory">
+                            <h5>No Relacionales:</h5>
+                            <ul>
+                                <li>MongoDB</li>
+                                <li>Elasticsearch</li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="skill-category">
                         <h4><i class="fas fa-project-diagram"></i> Arquitectura</h4>
                         <ul>
@@ -55,6 +78,7 @@
                             <li>Arquitectura Hexagonal</li>
                         </ul>
                     </div>
+
                     <div class="skill-category">
                         <h4><i class="fas fa-server"></i> DevOps</h4>
                         <ul>
@@ -66,6 +90,7 @@
                             <li>Terraform</li>
                         </ul>
                     </div>
+
                     <div class="skill-category">
                         <h4><i class="fas fa-chart-line"></i> Observabilidad</h4>
                         <ul>
@@ -73,14 +98,14 @@
                             <li>SonarQube</li>
                             <li>Kibana</li>
                             <li>Grafana</li>
-                            <li>Prometheus</li>
+
                         </ul>
                     </div>
+
                     <div class="skill-category">
                         <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
                         <ul>
-                            <li>OAuth 2.0</li>
-                            <li>SAML 2.0</li>
+                            <li>OAuth 2.0</li>                            
                             <li>JWT</li>
                             <li>LDAP</li>
                             <li>CyberArk</li>
@@ -103,19 +128,20 @@
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Liderazgo técnico para múltiples microservicios desarrollados en Java 17 y 21</li>
-                            <li>Migración de arquitectura monolítica modular a microservicios en OpenShift 4 (OCP4)</li>
-                            <li>Desarrollo del Kafka Consumer (Java 17) para OTs desde SFS</li>
-                            <li>Implementación del microservicio SFS-Mule (Java 21) con autenticación OAuth2 y JWT</li>
-                            <li>Coordinación de despliegues en entornos espejados (Hornos y San Lorenzo)</li>
+                            <li>Tech Lead del equipo Field Manager, una plataforma on-premise que actualmente funciona como un monolito modular desarrollado en Java 11.</li>
+                            <li>Liderazgo técnico en la transformación arquitectónica: migración de los 5 proyectos internos del monolito a microservicios independientes en Java 21 con Spring Boot 3.</li>
+                            <li>Desarrollo y mantenimiento de múltiples microservicios Java 17 y 21, con autenticación OAuth2, JWT y observabilidad completa en Dynatrace.</li>
+                            <li>Implementación de un nuevo microservicio <strong>api-sfs-mule</strong> en Java 21 para la consulta autenticada de datos vía OAuth2.</li>
+                            <li>Creación del microservicio <strong>Identity</strong> en Java 21, encargado de la autenticación federada con CyberArk (SSO - OAuth2.0) y fallback a LDAP según ambiente.</li>
+                            <li>Responsable de los despliegues a producción de manera manual, y actualmente trabajando junto al equipo DevOps en la implementación de CI/CD para automatizar despliegues, rollback y ejecución controlada de scripts de base de datos.</li>
                         </ul>
                         <div class="project">
                             <h5>Microservicio api-gid:</h5>
                             <ul>
-                                <li>Autenticación federada con CyberArk + OAuth2/SAML 2.0</li>
+                                <li>Autenticación federada con CyberArk + OAuth2</li>
                                 <li>Gestión de sesiones y validación JWT</li>
                                 <li>Fallback a LDAP en ambientes habilitados</li>
-                                <li>Integración con FM (Java 11 + JSP + Spring Security personalizado)</li>
+                                <li>Integración con FM (Java 11 + JSP + Spring Security)</li>
                             </ul>
                         </div>
                     </div>
@@ -131,11 +157,13 @@
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Migración de plataforma de salud a .NET Core 3.9 + Vue.js</li>
-                            <li>Implementación de videollamadas médico-paciente con OpenVidu</li>
-                            <li>Integración con farmacias para recetas digitales</li>
-                            <li>Geolocalización de profesionales de la salud</li>
-                            <li>Desarrollo de módulo de telemedicina con WebRTC</li>
+                            <li>Tech Lead responsable de la evolución de una plataforma de salud integral orientada a profesionales médicos, pacientes y centros asociados.</li>
+                            <li>Migración de la arquitectura heredada a .NET Core 3.9 para el backend y Vue.js para el frontend, mejorando performance, escalabilidad y experiencia de usuario.</li>
+                            <li>Implementación de videollamadas médico-paciente con <strong>OpenVidu</strong>, mejorando la calidad de atención remota mediante tecnología WebRTC.</li>
+                            <li>Desarrollo e integración con redes de farmacias para la emisión de <strong>recetas digitales</strong> de forma segura y trazable.</li>
+                            <li>Incorporación de geolocalización en tiempo real de profesionales para facilitar turnos, visitas médicas y servicios domiciliarios.</li>
+                            <li>Refactor completo del sistema de fichas clínicas, con almacenamiento seguro de historias médicas y compatibilidad multiplataforma.</li>
+                            <li>Optimización del frontend móvil y de escritorio, asegurando compatibilidad con múltiples navegadores y dispositivos médicos certificados.</li>
                         </ul>
                     </div>
                 </div>
@@ -150,11 +178,11 @@
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Liderazgo técnico en Célula 4: desarrollo del login con redes sociales (Google, Facebook, Apple)</li>
-                            <li>Stack tecnológico: Node.js v14 + Angular v11 + Ionic 5</li>
-                            <li>Migración de servicios a arquitectura de microservicios</li>
-                            <li>Coordinación con células dependientes (PFM, Transacciones)</li>
-                            <li>Diseño inicial de arquitectura microfrontend para todo el frontend</li>
+                            <li>Tech Lead en la Célula 4, responsable del desarrollo y despliegue del sistema de login con redes sociales (Google, Facebook, Apple) para la app móvil del banco ICBC.</li>
+                            <li>Stack tecnológico: Node.js v14 + Angular v11 + Ionic 5.</li>
+                            <li>Migración de servicios heredados a arquitectura de microservicios, asegurando escalabilidad y mantenibilidad.</li>
+                            <li>Coordinación directa con células dependientes como PFM y Transacciones, garantizando integración funcional y técnica.</li>
+                            <li>Participación en el diseño inicial de la arquitectura de microfrontends para el frontend completo de la App YOY.</li>
                         </ul>
                     </div>
                 </div>
@@ -169,12 +197,13 @@
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Desarrollo de sistema de desbloqueo por biometría: VeriLook + VeriFinger (React/React Native)</li>
-                            <li>Validación RENAPER (DNI / DNE) con OCR + firma digital</li>
-                            <li>Desarrollo de módulos para seguros y microseguros: Java + Oracle/MongoDB</li>
-                            <li>Migración de GO y Homebanking a arquitectura de microservicios</li>
-                            <li>Implementación de despliegue automatizado con Jenkins + OCP + Terraform</li>
-                            <li>Configuración de pipelines en OCP4 con tests integrados</li>
+                            <li>Responsable del desarrollo de soluciones de validación biométrica para desbloqueo de cajas de ahorro utilizando VeriFinger y VeriLook (React web + React Native móvil).</li>
+                            <li>Implementación de validación de identidad con RENAPER mediante escaneo de DNI/DNE, lectura MRZ, OCR y firma digital.</li>
+                            <li>Desarrollo de módulos de seguros y microseguros, con backend en Java 11 y almacenamiento mixto en Oracle y MongoDB.</li>
+                            <li>Migración de sistemas heredados como GO y Homebanking a microservicios basados en Spring Boot.</li>
+                            <li>Automatización de despliegues con Jenkins, OpenShift y Terraform, configurando pipelines CI/CD robustos.</li>
+                            <li>Validación RENAPER (DNI / DNE) con OCR + firma digital</li>                            
+                            <li>Migración de Frances GO y Homebanking a arquitectura de microservicios</li>
                         </ul>
                     </div>
                 </div>
@@ -189,10 +218,11 @@
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Desarrollo backend en Java 8 + Spring MVC + Spring Security + JDBC</li>
-                            <li>Frontend con PrimeFaces + Angular 1.5</li>
-                            <li>Diseño para futura migración a microservicios</li>
-                            <li>Desarrollo de eCheq electrónico para OfficeBanking Empresas</li>
+                            <li>Desarrollo y mantenimiento de aplicaciones bancarias internas utilizando Java 8, Spring MVC, Spring Security y JDBC.</li>
+                            <li>Frontend mixto con PrimeFaces y Angular 1.5 para compatibilidad progresiva.</li>
+                            <li>Diseño de arquitectura y esquemas para futura migración de servicios a microservicios.</li>
+                            <li>Implementación de eCheq electrónico para OfficeBanking Empresas, mejorando procesos digitales para pymes.</li>
+                            <li>Desarrollo de funcionalidades para el módulo de créditos hipotecarios y consulta de saldos online.</li> 
                             <li>Implementación de módulos de créditos hipotecarios</li>
                         </ul>
                     </div>
@@ -208,12 +238,12 @@
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Desarrollo del Portal de autogestión MetroGas</li>
-                            <li>Migración de Java 2 (JDK 1.4) a Java 6 (JDK 1.6)</li>
-                            <li>Implementación de funcionalidades: login por DNI, facturación, pagos con tarjeta, reclamos</li>
-                            <li>Refactor de monolito a arquitectura MVC</li>
-                            <li>Implementación de seguridad avanzada: AES/3DES, SHA-1/256, CSRF, anonimización, tokenización</li>
-                            <li>Stack tecnológico: JSP · Struts 1.x · Oracle DB · Apache Tomcat · JBoss · WebLogic</li>
+                            <li>Participación activa en el desarrollo, mantenimiento y evolución del portal de autogestión de clientes de MetroGas.</li>
+                            <li>Migración progresiva de servicios Java 2 (JDK 1.4) a Java 6 (JDK 1.6), garantizando compatibilidad y seguridad.</li>
+                            <li>Implementación de funcionalidades clave: login con DNI o número de cliente, facturación histórica, reclamos y pagos online.</li>
+                            <li>Refactorización del código monolítico a arquitectura MVC usando Struts 1.x y JSTL.</li>
+                            <li>Desarrollo de medidas de seguridad para datos sensibles: cifrado AES/3DES, hashing SHA-1/SHA-256, anonimización, CSRF y tokenización de transacciones.</li>
+                            <li>Stack tecnológico: JSP, Struts 1.x, JavaScript, Oracle DB, Apache Tomcat, JBoss 4.x y WebLogic.</li>
                         </ul>
                     </div>
                 </div>
@@ -282,7 +312,7 @@
                         <p><i class="fas fa-mobile-alt"></i> <strong>Teléfono:</strong> +54 9 11 3296 7779</p>
                         <p><i class="fas fa-envelope"></i> <strong>Email:</strong> busonlautaro@gmail.com</p>
                         <p><i class="fas fa-envelope"></i> <strong>Email alternativo:</strong> lautaro.buson@outlook.com</p>
-                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> linkedin.com/in/mlbuson</p>
+                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/miguel-lautaro-buson-7a56a06b/" target="_blank">linkedin.com/in/mlbuson</a></p>
                     </div>
                 </div>
                 
@@ -310,7 +340,6 @@
             </div>
             
             <div class="credits">
-                <p>CV diseñado con HTML5 y CSS3 | Desplegado con GitHub Pages</p>
                 <p>© 2023 Miguel Lautaro Buson - Todos los derechos reservados</p>
             </div>
         </footer>

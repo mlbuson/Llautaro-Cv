@@ -110,6 +110,7 @@ section {
 
 .skill-category:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .skill-category h4 {
@@ -120,8 +121,19 @@ section {
     color: var(--primary-color);
 }
 
+.database-subcategory {
+    margin-bottom: 15px;
+}
+
+.database-subcategory h5 {
+    color: var(--text-color);
+    margin: 10px 0 5px;
+    font-size: 0.95rem;
+}
+
 .skill-category ul {
     list-style-type: none;
+    padding-left: 5px;
 }
 
 .skill-category li {
@@ -251,6 +263,17 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .contact-info i {
