@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Miguel Lautaro Buson</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #222;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .highlight {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #003366;
+    }
+    .contact {
+      margin-bottom: 1rem;
+    }
+    .qr {
+      margin-top: 1rem;
+    }
+    img.qr-img {
+      width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Miguel Lautaro Buson</h1>
+  <p class="highlight">Tech Lead | Software Engineer Java | Angular | React | React Native | Vue</p>
+
+  <div class="contact">
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/miguel-lautaro-buson-7a56a06b" target="_blank">linkedin.com/in/mlbuson</a></p>
+    <p><strong>Celular:</strong> +54 9 11 3296-7779</p>
+    <p><strong>Correo:</strong> busonlautaro@gmail.com | lautaro.buson@outlook.com</p>
+    <p><strong>Ubicación:</strong> CABA – Ciudad Autónoma de Buenos Aires</p>
+  </div>
+
+  <div class="section">
+    <h2>Experiencia Profesional</h2>
+    <h3>Telecom Argentina</h3>
+    <p><strong>Rol:</strong> Tech Lead | Desde jun. 2021</p>
+    <ul>
+      <li>Desarrollo de microservicios en Java 17 y 21 con Spring Boot 3 desplegados en OCP4.</li>
+      <li>Integración de OAuth2 (client_credentials) con CyberArk y validación JWT.</li>
+      <li>MS api-gid: autenticación con SAML 2.0 / fallback a LDAP para Field Manager.</li>
+      <li>MS SFS-Mule: consumo de API con autenticación segura y despliegue en Quay.</li>
+      <li>Kafka consumer: recepción y procesamiento de OTs desde SFS.</li>
+    </ul>
+
+    <h3>IBM Argentina</h3>
+    <p><strong>Rol:</strong> Fullstack Developer | Cliente: ICBC | Período: ene. 2020 – abr. 2021</p>
+    <ul>
+      <li>Célula 4 – Desarrollo del login en microservicios con Node.js 14 + Angular 11 + Ionic 5.</li>
+      <li>Integración con login social: Google, Facebook y Apple.</li>
+      <li>Otras células (PFM, Transacciones) dependían del login de nuestra célula.</li>
+      <li>Inicio del esquema de migración del frontend a microfrontends.</li>
+    </ul>
+
+    <h3>BBVA Argentina</h3>
+    <p><strong>Rol:</strong> Tech Lead | Período: mar. 2015 – mar. 2020</p>
+    <ul>
+      <li><strong>Biometría:</strong> desbloqueo con VeriLook / VeriFinger (Spring Boot + React + React Native)</li>
+      <li><strong>RENAPER:</strong> validación de identidad por DNI escaneado (OCR + API REST con firma digital)</li>
+      <li><strong>Seguros:</strong> backend Java, Oracle y MongoDB.</li>
+      <li><strong>Migración GO:</strong> monolito → microservicios con Jenkins, OCP, Terraform.</li>
+      <li><strong>Homebanking:</strong> rediseño completo con login biométrico + app móvil.</li>
+    </ul>
+
+    <h3>Banco Hipotecario</h3>
+    <p><strong>Rol:</strong> Java Developer | Período: abr. 2013 – feb. 2015</p>
+    <ul>
+      <li>Desarrollo sobre monolito Java 8 + Spring Framework (MVC, Security, JDBC, Boot).</li>
+      <li>Frontend en PrimeFaces y Angular.</li>
+      <li>Funcionalidad completa de eCheq electrónico para OfficeBanking Empresas.</li>
+    </ul>
+
+    <h3>Accenture – Cliente: MetroGas</h3>
+    <p><strong>Rol:</strong> Java Developer | Período: mar. 2010 – mar. 2013</p>
+    <ul>
+      <li>Portal de autogestión para visualización de facturas, pagos y reclamos.</li>
+      <li>Migración de Java 2 (JDK 1.4) a Java 6 con refactor seguro y modular.</li>
+      <li>Frontend: JSP, Struts 1.x, HTML, JavaScript, JSTL.</li>
+      <li>Seguridad: AES/3DES, SHA-256, validación CSRF, HTTPS.</li>
+      <li>Servidores: Tomcat 5/6, JBoss 4.x, WebLogic.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Educación</h2>
+    <ul>
+      <li><strong>Licenciatura en Sistemas</strong> – Pontificia Universidad Católica Argentina (2019 – 2025)</li>
+      <li><strong>Hacking Ético</strong> – Universidad Siglo 21 (2016 – 2017)</li>
+      <li><strong>SQL Server</strong> – EducacionIT (2014)</li>
+      <li><strong>Universitas</strong> (2012 – 2014)</li>
+      <li><strong>Windows Server 2008 / Informática</strong> – bs informática (2009 – 2011) – Nota: 9</li>
+      <li><strong>Analista Programador</strong> – Instituto Tecnológico Argentino (2007 – 2010)</li>
+    </ul>
+  </div>
+
+  <div class="section qr">
+    <h3>🔗 Ver este CV como sitio web</h3>
+    <p>Escaneá este código QR o accedé a:</p>
+    <p><a href="https://mlbuson.github.io/Llautaro-Cv/" target="_blank">https://mlbuson.github.io/Llautaro-Cv/</a></p>
+    <img class="qr-img" src="QR_CV_LautaroBuson.png" alt="QR CV Miguel Lautaro Buson" />
+  </div>
+</body>
+</html>
+
