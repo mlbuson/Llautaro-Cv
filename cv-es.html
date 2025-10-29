@@ -397,86 +397,24 @@
     }
 
     /* Education Section */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 2rem auto;
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 30px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--primary-color);
-      opacity: 0.3;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: all 0.6s ease;
-    }
-
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .timeline-icon {
-      position: absolute;
-      left: 0;
-      width: 60px;
-      height: 60px;
-      background: var(--primary-color);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      z-index: 2;
-    }
-
-    .timeline-content {
-      margin-left: 80px;
+    .education-item {
       background: var(--bg-light);
       padding: 1.5rem;
       border-radius: var(--radius);
       border-left: 4px solid var(--primary-color);
-    }
-
-    .timeline-content h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .timeline-content .date {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 0.75rem;
-    }
-
-    .timeline-content p {
-      line-height: 1.6;
-      color: var(--text-dark);
-    }
-
-    .education-item {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.5s ease;
+      transition: all 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .education-item.visible {
@@ -484,10 +422,28 @@
       transform: translateY(0);
     }
 
-    .education-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
+    .education-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .education-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .education-content {
+      flex: 1;
     }
 
     .education-item h4 {
@@ -501,6 +457,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
+      margin-bottom: 0.75rem;
     }
 
     .education-meta span {
@@ -514,6 +471,12 @@
     .degree {
       font-weight: 500;
       color: var(--primary-color) !important;
+    }
+
+    .education-item p {
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-top: auto;
     }
 
     /* Footer */
@@ -539,27 +502,64 @@
       gap: 0.75rem;
     }
 
-    .contact-info p {
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
 
-    .contact-info a {
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details {
+      flex: 1;
+    }
+
+    .contact-details strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: white;
+    }
+
+    .contact-details a, .contact-details span {
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    .contact-info a:hover {
+    .contact-details a:hover {
       color: var(--accent-color);
     }
 
     .action-buttons {
       display: flex;
       gap: 1rem;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -581,6 +581,7 @@
     .action-btn:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
 
     .action-btn.whatsapp {
@@ -589,6 +590,14 @@
 
     .action-btn.whatsapp:hover {
       background: #128C7E;
+    }
+
+    .action-btn.linkedin {
+      background: #0077b5;
+    }
+
+    .action-btn.linkedin:hover {
+      background: #005885;
     }
 
     .credits {
@@ -706,6 +715,10 @@
         grid-template-columns: 1fr;
       }
       
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .job-header {
         flex-direction: column;
         align-items: flex-start;
@@ -738,18 +751,8 @@
         flex-direction: column;
       }
       
-      .timeline::before {
-        left: 25px;
-      }
-      
-      .timeline-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
-      }
-      
-      .timeline-content {
-        margin-left: 70px;
+      .contact-info {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1816,7 +1819,7 @@ resource <span class="code-string">"openshift_deployment_config"</span> <span cl
             <ul>
               <li>Responsable del desarrollo de soluciones de validación biométrica para desbloqueo de cajas de ahorro utilizando VeriFinger y VeriLook (React web + React Native móvil).</li>
               <li>Implementación de validación de identidad con RENAPER mediante escaneo de DNI/DNE, lectura MRZ, OCR y firma digital.</li>
-              <li>Desarrollo de módulos de seguros y microseguros, con backend en Java 11 y almacenamiento mixto en Oracle и MongoDB.</li>
+              <li>Desarrollo de módulos de seguros y microseguros, con backend en Java 11 y almacenamiento mixto en Oracle y MongoDB.</li>
               <li>Migración de sistemas heredados como GO y Homebanking a microservicios basados en Spring Boot.</li>
               <li>Automatización de despliegues con Jenkins, OpenShift y Terraform, configurando pipelines CI/CD robustos.</li>
               <li>Validación RENAPER (DNI / DNE) con OCR + firma digital</li>
@@ -1899,98 +1902,161 @@ resource <span class="code-string">"openshift_deployment_config"</span> <span cl
 
       <section id="educacion" class="education">
         <h3><i class="fas fa-graduation-cap"></i> Educación y Certificaciones</h3>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-icon"><i class="fab fa-java"></i></div>
-            <div class="timeline-content">
-              <h4>EducacionIT</h4>
-              <span class="date"><i class="far fa-calendar-alt"></i> Abr 2014 – Oct 2015</span>
-              <p>Java Developer & SQL Server.  
-              Formación en Java SE 7, JDBC, JSP y patrones de diseño.  
-              Preparación para la certificación <strong>Oracle Certified Professional, Java SE 7 Programmer (OCPJP 7)</strong>.</p>
+        
+        <div class="education-grid">
+          <!-- Ordenado por años (más reciente primero) -->
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div class="education-content">
+                <h4>Platzi / Red Hat</h4>
+                <div class="education-meta">
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2021 – 2024 (en curso)</span>
+                </div>
+                <p>Spring Cloud, OpenShift (OCP4) y DevOps CI/CD. Despliegue de microservicios cloud-native en entornos empresariales.</p>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
-            <div class="timeline-content">
-              <h4>Oracle University</h4>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2015</span>
-              <p>Certificación oficial <strong>OCPJP 7</strong> – Programador Profesional Java SE.</p>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="education-content">
+                <h4>Pontificia Universidad Católica Argentina (UCA)</h4>
+                <div class="education-meta">
+                  <span class="degree">Licenciatura en Sistemas</span>
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2019 – 2025 (en curso)</span>
+                </div>
+                <p>Formación universitaria en desarrollo de sistemas de información y tecnologías de la información.</p>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-code"></i></div>
-            <div class="timeline-content">
-              <h4>EducacionIT</h4>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2016 – 2018</span>
-              <p>Java EE, Hibernate y Spring Framework.  
-              Desarrollo de backend empresarial y manejo de persistencia.</p>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fab fa-docker"></i>
+              </div>
+              <div class="education-content">
+                <h4>Platzi / Udemy</h4>
+                <div class="education-meta">
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2019 – 2021</span>
+                </div>
+                <p>Arquitectura de Microservicios con Spring Boot 2.x, Docker, Kubernetes y Kafka. Construcción y despliegue de sistemas distribuidos.</p>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"><i class="fab fa-docker"></i></div>
-            <div class="timeline-content">
-              <h4>Platzi / Udemy</h4>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2019 – 2021</span>
-              <p>Arquitectura de Microservicios con Spring Boot 2.x, Docker, Kubernetes y Kafka.  
-              Construcción y despliegue de sistemas distribuidos.</p>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="education-content">
+                <h4>Universidad Siglo 21</h4>
+                <div class="education-meta">
+                  <span class="degree">Hacking Ético</span>
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2016 – 2017</span>
+                </div>
+                <p>Especialización en seguridad informática, técnicas de hacking ético y protección de sistemas.</p>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"><i class="fas fa-cloud"></i></div>
-            <div class="timeline-content">
-              <h4>Platzi / Red Hat</h4>
-              <span class="date"><i class="far fa-calendar-alt"></i> 2021 – 2024 (en curso)</span>
-              <p>Spring Cloud, OpenShift (OCP4) y DevOps CI/CD.  
-              Despliegue de microservicios cloud-native en entornos empresariales.</p>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="education-content">
+                <h4>EducacionIT</h4>
+                <div class="education-meta">
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2016 – 2018</span>
+                </div>
+                <p>Java EE, Hibernate y Spring Framework. Desarrollo de backend empresarial y manejo de persistencia.</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Resto de educación -->
-        <div class="education-item">
-          <h4>Pontificia Universidad Católica Argentina (UCA)</h4>
-          <div class="education-meta">
-            <span class="degree">Licenciatura en Sistemas</span>
-            <span class="date"><i class="far fa-calendar-alt"></i> Abr 2019 – Dic 2025 (en curso)</span>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <div class="education-content">
+                <h4>Oracle University</h4>
+                <div class="education-meta">
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2015</span>
+                </div>
+                <p>Certificación oficial <strong>OCPJP 7</strong> – Programador Profesional Java SE.</p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="education-item">
-          <h4>Universidad Siglo 21</h4>
-          <div class="education-meta">
-            <span class="degree">Hacking Ético</span>
-            <span class="date"><i class="far fa-calendar-alt"></i> May 2016 – Abr 2017</span>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fab fa-java"></i>
+              </div>
+              <div class="education-content">
+                <h4>EducacionIT</h4>
+                <div class="education-meta">
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2014 – 2015</span>
+                </div>
+                <p>Java Developer & SQL Server. Formación en Java SE 7, JDBC, JSP y patrones de diseño. Preparación para la certificación OCPJP 7.</p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="education-item">
-          <h4>Universitas</h4>
-          <div class="education-meta">
-            <span class="degree">Formación en programación y sistemas</span>
-            <span class="date"><i class="far fa-calendar-alt"></i> 2012 – 2014</span>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="education-content">
+                <h4>Universitas</h4>
+                <div class="education-meta">
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2012 – 2014</span>
+                </div>
+                <p>Formación en programación y sistemas. Fundamentos de desarrollo de software y tecnologías de la información.</p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="education-item">
-          <h4>BS Informática</h4>
-          <div class="education-meta">
-            <span class="degree">Windows Server 2008</span>
-            <span class="date"><i class="far fa-calendar-alt"></i> 2009 – 2011</span>
-            <span class="grade">Nota: 9 – Administración, DNS físico y virtual</span>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="education-content">
+                <h4>BS Informática</h4>
+                <div class="education-meta">
+                  <span class="degree">Windows Server 2008</span>
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2009 – 2011</span>
+                </div>
+                <p>Nota: 9 – Administración, DNS físico y virtual. Especialización en infraestructura y administración de servidores.</p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="education-item">
-          <h4>Instituto Tecnológico Argentino</h4>
-          <div class="education-meta">
-            <span class="degree">Analista Programador</span>
-            <span class="date"><i class="far fa-calendar-alt"></i> 2007 – 2010</span>
+          <div class="education-item">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="education-content">
+                <h4>Instituto Tecnológico Argentino</h4>
+                <div class="education-meta">
+                  <span class="degree">Analista Programador</span>
+                  <span class="date"><i class="far fa-calendar-alt"></i> 2007 – 2010</span>
+                </div>
+                <p>Formación técnica en análisis y desarrollo de sistemas. Base fundamental para la carrera profesional en desarrollo de software.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2002,10 +2068,45 @@ resource <span class="code-string">"openshift_deployment_config"</span> <span cl
           <div class="contact-section">
             <h3><i class="fas fa-address-card"></i> Contacto</h3>
             <div class="contact-info">
-              <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> La Plata, Provincia de Buenos Aires</p>
-              <p><i class="fas fa-mobile-alt"></i> <strong>Teléfono:</strong> <a href="tel:+5491132967779">+54 9 11 3296 7779</a></p>
-              <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:busonlautaro@gmail.com">busonlautaro@gmail.com</a></p>
-              <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/laubuson/" target="_blank" rel="noopener">linkedin.com/in/laubuson</a></p>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <strong>Ubicación</strong>
+                  <span>La Plata, Provincia de Buenos Aires</span>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <strong>Teléfono</strong>
+                  <a href="tel:+5491132967779">+54 9 11 3296 7779</a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <strong>Email</strong>
+                  <a href="mailto:busonlautaro@gmail.com">busonlautaro@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-details">
+                  <strong>LinkedIn</strong>
+                  <a href="https://www.linkedin.com/in/laubuson/" target="_blank" rel="noopener">linkedin.com/in/laubuson</a>
+                </div>
+              </div>
             </div>
             
             <div class="action-buttons">
@@ -2017,6 +2118,9 @@ resource <span class="code-string">"openshift_deployment_config"</span> <span cl
               </a>
               <a href="https://wa.me/5491132967779" class="action-btn whatsapp">
                 <i class="fab fa-whatsapp"></i>WhatsApp
+              </a>
+              <a href="https://www.linkedin.com/in/laubuson/" class="action-btn linkedin">
+                <i class="fab fa-linkedin"></i>LinkedIn
               </a>
             </div>
           </div>
@@ -2075,19 +2179,11 @@ resource <span class="code-string">"openshift_deployment_config"</span> <span cl
 
       // Animación para educación
       function animateEducation() {
-        const timelineItems = document.querySelectorAll('.timeline-item');
         const educationItems = document.querySelectorAll('.education-item');
-        
-        timelineItems.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('visible');
-          }, index * 400);
-        });
-
         educationItems.forEach((item, index) => {
           setTimeout(() => {
             item.classList.add('visible');
-          }, index * 200 + 2000);
+          }, index * 200);
         });
       }
 
