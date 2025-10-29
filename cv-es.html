@@ -3,9 +3,783 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CV profesional de Miguel Lautaro Buson - Tech Lead con 13+ años de experiencia en desarrollo de software">
+  <meta name="keywords" content="Tech Lead, Java, Spring Boot, Microservicios, Angular, React, DevOps, Software Engineer">
+  <meta name="author" content="Miguel Lautaro Buson">
   <title>CV Profesional - Miguel Lautaro Buson</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <style>
+    /* Variables y Reset */
+    :root {
+      --primary-color: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #7c3aed;
+      --accent-color: #06b6d4;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --bg-light: #f9fafb;
+      --bg-white: #ffffff;
+      --border-color: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: cover;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .header-content h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .quick-nav {
+      background: var(--bg-white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+      width: 100%;
+    }
+
+    .quick-nav-content {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .quick-nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quick-nav a:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      width: 100%;
+    }
+
+    section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    section h3 i {
+      color: var(--secondary-color);
+    }
+
+    /* Summary Section */
+    .summary p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--primary-color);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .skill-category.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skill-category h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .skill-category h4 i {
+      color: var(--primary-color);
+    }
+
+    .skill-levels {
+      margin-top: 0.5rem;
+    }
+
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+
+    .skill-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .skill-name {
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .skill-bar {
+      width: 60%;
+      height: 8px;
+      background: var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      border-radius: 4px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.5s ease 0.3s;
+    }
+
+    .skill-progress.animated {
+      transform: scaleX(1);
+    }
+
+    .database-subcategory {
+      margin-top: 1rem;
+    }
+
+    .database-subcategory h5 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .skill-category ul {
+      list-style: none;
+    }
+
+    .skill-category li {
+      padding: 0.25rem 0;
+      position: relative;
+      padding-left: 1rem;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.4s ease;
+    }
+
+    .skill-category li.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .skill-category li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+    }
+
+    /* Experience Section */
+    .job {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .job.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .job:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .job-title-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .job-header h4 {
+      font-size: 1.25rem;
+      color: var(--text-dark);
+    }
+
+    .job-badge {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+    }
+
+    .job-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .job-description ul {
+      list-style: none;
+      margin-left: 1rem;
+    }
+
+    .job-description li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .job-description li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .project {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      margin-top: 1.5rem;
+    }
+
+    .project h5 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .tech-tag {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary-color);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      font-weight: 500;
+    }
+
+    /* Education Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary-color);
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-icon {
+      position: absolute;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      z-index: 2;
+    }
+
+    .timeline-content {
+      margin-left: 80px;
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .timeline-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .timeline-content .date {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-content p {
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    .education-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .education-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .education-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .education-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .education-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .education-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .degree {
+      font-weight: 500;
+      color: var(--primary-color) !important;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 3rem 0 1.5rem;
+      width: 100%;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-color);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .action-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .action-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .action-btn.whatsapp {
+      background: #25D366;
+    }
+
+    .action-btn.whatsapp:hover {
+      background: #128C7E;
+    }
+
+    .credits {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Code Examples */
+    .code-examples {
+      margin-top: 2rem;
+    }
+
+    .code-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .code-tab {
+      padding: 0.75rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--text-light);
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .code-tab.active {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    .code-content {
+      display: none;
+      background: #1a1b26;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .code-content.active {
+      display: block;
+    }
+
+    .code-header {
+      background: #16161e;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .code-title {
+      font-weight: 500;
+      color: #a9b1d6;
+    }
+
+    .code-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .code-action {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .code-action.red { background: #f7768e; }
+    .code-action.yellow { background: #e0af68; }
+    .code-action.green { background: #9ece6a; }
+
+    .code-block {
+      padding: 1.5rem;
+      overflow-x: auto;
+      color: #c0caf5;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .code-keyword { color: #bb9af7; }
+    .code-function { color: #7dcfff; }
+    .code-string { color: #9ece6a; }
+    .code-comment { color: #565f89; font-style: italic; }
+    .code-annotation { color: #ff9e64; }
+    .code-class { color: #7aa2f7; }
+    .code-variable { color: #c0caf5; }
+    .code-number { color: #ff9e64; }
+    .code-operator { color: #bb9af7; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content h1 {
+        font-size: 2rem;
+      }
+      
+      .header-content h2 {
+        font-size: 1.1rem;
+      }
+      
+      .quick-nav-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .job-meta {
+        align-items: flex-start;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .skill-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .skill-bar {
+        width: 100%;
+      }
+      
+      .code-tabs {
+        flex-direction: column;
+      }
+      
+      .timeline::before {
+        left: 25px;
+      }
+      
+      .timeline-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+      }
+      
+      .timeline-content {
+        margin-left: 70px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .quick-nav, .action-buttons {
+        display: none;
+      }
+      
+      body {
+        background: white;
+        color: black;
+      }
+      
+      section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      
+      header {
+        background: #f0f0f0 !important;
+        color: black;
+      }
+      
+      footer {
+        background: #f0f0f0 !important;
+        color: black;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -16,106 +790,914 @@
       </div>
     </header>
 
-    <main>
-      <section class="summary">
+    <nav class="quick-nav">
+      <div class="quick-nav-content container">
+        <a href="#perfil"><i class="fas fa-user-tie"></i> Perfil</a>
+        <a href="#habilidades"><i class="fas fa-code"></i> Habilidades</a>
+        <a href="#experiencia"><i class="fas fa-briefcase"></i> Experiencia</a>
+        <a href="#educacion"><i class="fas fa-graduation-cap"></i> Educación</a>
+        <a href="#contacto"><i class="fas fa-address-card"></i> Contacto</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <section id="perfil" class="summary">
         <h3><i class="fas fa-user-tie"></i> Perfil Profesional</h3>
-        <p>Desarrollador en software con más de 10 años de experiencia en desarrollo y 7 años desempeñando el rol de Tech Lead, liderando equipos en entornos críticos y de alta exigencia.</p>
+        <p>Desarrollador en software con más de 13 años de experiencia en desarrollo y 7 años desempeñando el rol de Tech Lead, liderando equipos en entornos críticos y de alta exigencia.</p>
         <p>Amplia trayectoria en el sector bancario y financiero, participando en proyectos clave para BBVA, ICBC y Banco Hipotecario, así como en empresas líderes como Telecom, IBM.</p>
         <p>Especialista en arquitecturas modernas orientadas a microservicios, integración de soluciones de seguridad con SSO (OAuth2, CyberArk), desarrollo frontend con frameworks actuales, y despliegue de aplicaciones en OpenShift 4. Enfoque sólido en calidad de código, performance, seguridad y evolución tecnológica continua.</p>
       </section>
 
-      <section class="skills">
+      <section id="habilidades" class="skills">
         <h3><i class="fas fa-code"></i> Habilidades Técnicas</h3>
         <div class="skills-grid">
+          <!-- Lenguajes -->
           <div class="skill-category">
             <h4><i class="fas fa-laptop-code"></i> Lenguajes</h4>
-            <ul>
-              <li>Java 8/11/17/21</li>
-              <li>JavaScript/TypeScript</li>
-              <li>Node.js</li>
-              <li>.NET Core</li>
-            </ul>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">Java 8/11/17/21</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">TypeScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">C#</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Entornos y Plataformas -->
           <div class="skill-category">
-            <h4><i class="fas fa-layer-group"></i> Frameworks</h4>
-            <ul>
-              <li>Spring Boot 3</li>
-              <li>Angular</li>
-              <li>React/React Native</li>
-              <li>Vue.js</li>
-              <li>Node.js</li>
-              <li>JSP</li>
-            </ul>
+            <h4><i class="fas fa-cogs"></i> Entornos y Plataformas</h4>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">Node.js</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">.NET Core</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Frameworks y Librerías -->
+          <div class="skill-category">
+            <h4><i class="fas fa-layer-group"></i> Frameworks y Librerías</h4>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">Spring Boot 3</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Angular</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">React / React Native</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Vue.js</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JSP</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bases de Datos -->
           <div class="skill-category">
             <h4><i class="fas fa-database"></i> Bases de Datos</h4>
             <div class="database-subcategory">
               <h5>Relacionales:</h5>
-              <ul>
-                <li>Oracle</li>
-                <li>SQL Server</li>
-                <li>MySQL</li>
-              </ul>
+              <div class="skill-levels">
+                <div class="skill-item">
+                  <span class="skill-name">Oracle</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">SQL Server</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">MySQL</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">PostgreSQL</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="database-subcategory">
               <h5>No Relacionales:</h5>
-              <ul>
-                <li>MongoDB</li>
-                <li>Elasticsearch</li>
-              </ul>
+              <div class="skill-levels">
+                <div class="skill-item">
+                  <span class="skill-name">MongoDB</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Elasticsearch</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Arquitectura -->
           <div class="skill-category">
             <h4><i class="fas fa-project-diagram"></i> Arquitectura</h4>
-            <ul>
-              <li>Microservicios</li>
-              <li>Monolitos Modulares</li>
-              <li>Event Driven</li>
-              <li>Microfrontends</li>
-              <li>Arquitectura Hexagonal</li>
-            </ul>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">Microservicios</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Monolitos Modulares</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Event Driven</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Microfrontends</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Arquitectura Hexagonal</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Clean Architecture / DDD</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="skill-category">
-            <h4><i class="fas fa-server"></i> DevOps</h4>
-            <ul>
-              <li>GitLab CI/CD</li>
-              <li>Jenkins</li>
-              <li>Docker</li>
-              <li>OpenShift (OCP4)</li>
-              <li>Quay</li>
-              <li>Terraform</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h4><i class="fas fa-chart-line"></i> Observabilidad</h4>
-            <ul>
-              <li>Dynatrace</li>
-              <li>SonarQube</li>
-              <li>Kibana</li>
-              <li>Grafana</li>
-            </ul>
-          </div>
+
+          <!-- Seguridad -->
           <div class="skill-category">
             <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
-            <ul>
-              <li>OAuth 2.0</li>
-              <li>JWT</li>
-              <li>LDAP</li>
-              <li>CyberArk</li>
-              <li>Hashing & Encryption</li>
-            </ul>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">OAuth 2.0</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JWT</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">LDAP</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">CyberArk</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Hashing & Encryption</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DevOps -->
+          <div class="skill-category">
+            <h4><i class="fas fa-server"></i> DevOps</h4>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">GitLab CI/CD</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Jenkins</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Docker</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">OpenShift (OCP4)</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Quay</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Terraform</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Observabilidad y Calidad -->
+          <div class="skill-category">
+            <h4><i class="fas fa-chart-line"></i> Observabilidad y Calidad</h4>
+            <div class="skill-levels">
+              <div class="skill-item">
+                <span class="skill-name">Dynatrace</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Kibana</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Grafana</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">SonarQube</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejemplos de Código -->
+        <div class="code-examples">
+          <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Ejemplos de Código por Tecnología</h4>
+          <div class="code-tabs">
+            <button class="code-tab active" data-tab="java">Java 21</button>
+            <button class="code-tab" data-tab="spring">Spring Boot 3</button>
+            <button class="code-tab" data-tab="angular">Angular</button>
+            <button class="code-tab" data-tab="react">React</button>
+            <button class="code-tab" data-tab="node">Node.js</button>
+            <button class="code-tab" data-tab="docker">Docker</button>
+            <button class="code-tab" data-tab="terraform">Terraform</button>
+            <button class="code-tab" data-tab="sql">SQL</button>
+            <button class="code-tab" data-tab="oauth">OAuth2</button>
+            <button class="code-tab" data-tab="microservices">Microservicios</button>
+          </div>
+          
+          <!-- Java Code -->
+          <div class="code-content active" id="java-code">
+            <div class="code-header">
+              <div class="code-title">AuthenticationService.java - Servicio de Autenticación con Java 21</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">package</span> <span class="code-class">com.telecom.auth.service</span>;
+
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.authentication.AuthenticationManager</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.authentication.UsernamePasswordAuthenticationToken</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.crypto.password.PasswordEncoder</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.stereotype.Service</span>;
+
+<span class="code-keyword">import</span> <span class="code-class">lombok.RequiredArgsConstructor</span>;
+<span class="code-keyword">import</span> <span class="code-class">lombok.extern.slf4j.Slf4j</span>;
+
+<span class="code-annotation">@Service</span>
+<span class="code-annotation">@RequiredArgsConstructor</span>
+<span class="code-annotation">@Slf4j</span>
+<span class="code-keyword">public class</span> <span class="code-class">AuthenticationService</span> {
+    
+    <span class="code-keyword">private final</span> <span class="code-class">UserRepository</span> userRepository;
+    <span class="code-keyword">private final</span> <span class="code-class">PasswordEncoder</span> passwordEncoder;
+    <span class="code-keyword">private final</span> <span class="code-class">JwtService</span> jwtService;
+    <span class="code-keyword">private final</span> <span class="code-class">AuthenticationManager</span> authenticationManager;
+    
+    <span class="code-keyword">public</span> <span class="code-class">AuthenticationResponse</span> <span class="code-function">authenticate</span>(<span class="code-class">AuthenticationRequest</span> request) {
+        log.<span class="code-function">info</span>(<span class="code-string">"Authenticating user: {}"</span>, request.<span class="code-function">getUsername</span>());
+        
+        <span class="code-comment">// Autenticar con Spring Security</span>
+        authenticationManager.<span class="code-function">authenticate</span>(
+            <span class="code-keyword">new</span> <span class="code-class">UsernamePasswordAuthenticationToken</span>(
+                request.<span class="code-function">getUsername</span>(),
+                request.<span class="code-function">getPassword</span>()
+            )
+        );
+        
+        <span class="code-comment">// Buscar usuario en base de datos</span>
+        <span class="code-keyword">var</span> user = userRepository.<span class="code-function">findByUsername</span>(request.<span class="code-function">getUsername</span>())
+            .<span class="code-function">orElseThrow</span>(() -> <span class="code-keyword">new</span> <span class="code-class">UserNotFoundException</span>(<span class="code-string">"User not found: "</span> + request.<span class="code-function">getUsername</span>()));
+        
+        <span class="code-comment">// Generar token JWT</span>
+        <span class="code-keyword">var</span> jwtToken = jwtService.<span class="code-function">generateToken</span>(user);
+        <span class="code-keyword">var</span> refreshToken = jwtService.<span class="code-function">generateRefreshToken</span>(user);
+        
+        <span class="code-keyword">return</span> <span class="code-class">AuthenticationResponse</span>.<span class="code-function">builder</span>()
+            .<span class="code-function">accessToken</span>(jwtToken)
+            .<span class="code-function">refreshToken</span>(refreshToken)
+            .<span class="code-function">expiresIn</span>(jwtService.<span class="code-function">getExpirationTime</span>())
+            .<span class="code-function">tokenType</span>(<span class="code-string">"Bearer"</span>)
+            .<span class="code-function">build</span>();
+    }
+}</code></pre>
+            </div>
+          </div>
+          
+          <!-- Spring Boot Code -->
+          <div class="code-content" id="spring-code">
+            <div class="code-header">
+              <div class="code-title">SecurityConfig.java - Configuración de Seguridad Spring Boot 3</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">package</span> <span class="code-class">com.telecom.auth.config</span>;
+
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.context.annotation.Bean</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.context.annotation.Configuration</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.config.annotation.web.builders.HttpSecurity</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.config.annotation.web.configuration.EnableWebSecurity</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.config.http.SessionCreationPolicy</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.web.SecurityFilterChain</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter</span>;
+
+<span class="code-keyword">import</span> <span class="code-class">lombok.RequiredArgsConstructor</span>;
+
+<span class="code-annotation">@Configuration</span>
+<span class="code-annotation">@EnableWebSecurity</span>
+<span class="code-annotation">@EnableMethodSecurity</span>
+<span class="code-annotation">@RequiredArgsConstructor</span>
+<span class="code-keyword">public class</span> <span class="code-class">SecurityConfig</span> {
+    
+    <span class="code-keyword">private final</span> <span class="code-class">JwtAuthenticationFilter</span> jwtAuthFilter;
+    <span class="code-keyword">private final</span> <span class="code-class">CustomAuthenticationEntryPoint</span> authenticationEntryPoint;
+    
+    <span class="code-annotation">@Bean</span>
+    <span class="code-keyword">public</span> <span class="code-class">SecurityFilterChain</span> <span class="code-function">securityFilterChain</span>(<span class="code-class">HttpSecurity</span> http) <span class="code-keyword">throws</span> <span class="code-class">Exception</span> {
+        http
+            .<span class="code-function">csrf</span>(csrf -> csrf.<span class="code-function">disable</span>())
+            .<span class="code-function">exceptionHandling</span>(exception -> exception
+                .<span class="code-function">authenticationEntryPoint</span>(authenticationEntryPoint)
+            )
+            .<span class="code-function">authorizeHttpRequests</span>(auth -> auth
+                .<span class="code-function">requestMatchers</span>(<span class="code-string">"/api/v1/auth/**"</span>).<span class="code-function">permitAll</span>()
+                .<span class="code-function">requestMatchers</span>(<span class="code-string">"/api/v1/admin/**"</span>).<span class="code-function">hasRole</span>(<span class="code-string">"ADMIN"</span>)
+                .<span class="code-function">anyRequest</span>().<span class="code-function">authenticated</span>()
+            )
+            .<span class="code-function">sessionManagement</span>(session -> session
+                .<span class="code-function">sessionCreationPolicy</span>(<span class="code-class">SessionCreationPolicy</span>.<span class="code-variable">STATELESS</span>)
+            )
+            .<span class="code-function">addFilterBefore</span>(jwtAuthFilter, <span class="code-class">UsernamePasswordAuthenticationFilter</span>.<span class="code-keyword">class</span>);
+            
+        <span class="code-keyword">return</span> http.<span class="code-function">build</span>();
+    }
+}</code></pre>
+            </div>
+          </div>
+          
+          <!-- Angular Code -->
+          <div class="code-content" id="angular-code">
+            <div class="code-header">
+              <div class="code-title">auth.service.ts - Servicio de Autenticación Angular</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">import</span> { Injectable } <span class="code-keyword">from</span> <span class="code-string">'@angular/core'</span>;
+<span class="code-keyword">import</span> { HttpClient } <span class="code-keyword">from</span> <span class="code-string">'@angular/common/http'</span>;
+<span class="code-keyword">import</span> { BehaviorSubject, Observable, tap } <span class="code-keyword">from</span> <span class="code-string">'rxjs'</span>;
+
+<span class="code-keyword">export interface</span> <span class="code-class">User</span> {
+  id: <span class="code-class">number</span>;
+  username: <span class="code-class">string</span>;
+  email: <span class="code-class">string</span>;
+  roles: <span class="code-class">string</span>[];
+}
+
+<span class="code-keyword">export interface</span> <span class="code-class">AuthResponse</span> {
+  accessToken: <span class="code-class">string</span>;
+  refreshToken: <span class="code-class">string</span>;
+  tokenType: <span class="code-class">string</span>;
+  expiresIn: <span class="code-class">number</span>;
+}
+
+<span class="code-annotation">@Injectable</span>({
+  providedIn: <span class="code-string">'root'</span>
+})
+<span class="code-keyword">export class</span> <span class="code-class">AuthService</span> {
+  <span class="code-keyword">private</span> currentUserSubject = <span class="code-keyword">new</span> <span class="code-class">BehaviorSubject</span>&lt;<span class="code-class">User</span> | <span class="code-class">null</span>&gt;(<span class="code-keyword">null</span>);
+  <span class="code-keyword">public</span> currentUser$ = <span class="code-keyword">this</span>.currentUserSubject.asObservable();
+
+  <span class="code-keyword">constructor</span>(<span class="code-keyword">private</span> http: <span class="code-class">HttpClient</span>) {}
+
+  login(username: <span class="code-class">string</span>, password: <span class="code-class">string</span>): <span class="code-class">Observable</span>&lt;<span class="code-class">AuthResponse</span>&gt; {
+    <span class="code-keyword">return this</span>.http.post&lt;<span class="code-class">AuthResponse</span>&gt;(<span class="code-string">'/api/v1/auth/login'</span>, { username, password })
+      .pipe(
+        tap(response => {
+          localStorage.setItem(<span class="code-string">'access_token'</span>, response.accessToken);
+          <span class="code-keyword">this</span>.decodeAndSetUser(response.accessToken);
+        })
+      );
+  }
+
+  <span class="code-keyword">private</span> decodeAndSetUser(token: <span class="code-class">string</span>): <span class="code-class">void</span> {
+    <span class="code-keyword">const</span> payload = <span class="code-class">JSON</span>.parse(<span class="code-keyword">this</span>.base64UrlDecode(token.split(<span class="code-string">'.'</span>)[1]));
+    <span class="code-keyword">const</span> user: <span class="code-class">User</span> = {
+      id: payload.sub,
+      username: payload.username,
+      email: payload.email,
+      roles: payload.roles || []
+    };
+    <span class="code-keyword">this</span>.currentUserSubject.next(user);
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- React Code -->
+          <div class="code-content" id="react-code">
+            <div class="code-header">
+              <div class="code-title">AuthContext.jsx - Context de Autenticación React</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">import</span> React, { createContext, useState, useContext, useEffect } <span class="code-keyword">from</span> <span class="code-string">'react'</span>;
+<span class="code-keyword">import</span> { authAPI } <span class="code-keyword">from</span> <span class="code-string">'../services/api'</span>;
+
+<span class="code-keyword">const</span> AuthContext = createContext();
+
+<span class="code-keyword">export const</span> useAuth = () => {
+  <span class="code-keyword">const</span> context = useContext(AuthContext);
+  <span class="code-keyword">if</span> (!context) {
+    <span class="code-keyword">throw new</span> Error('useAuth must be used within an AuthProvider');
+  }
+  <span class="code-keyword">return</span> context;
+};
+
+<span class="code-keyword">export const</span> AuthProvider = ({ children }) => {
+  <span class="code-keyword">const</span> [user, setUser] = useState(<span class="code-keyword">null</span>);
+  <span class="code-keyword">const</span> [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, []);
+
+  <span class="code-keyword">const</span> checkAuthStatus = async () => {
+    <span class="code-keyword">const</span> token = localStorage.getItem('access_token');
+    <span class="code-keyword">if</span> (token) {
+      <span class="code-keyword">try</span> {
+        <span class="code-keyword">const</span> userData = await authAPI.verifyToken(token);
+        setUser(userData);
+      } <span class="code-keyword">catch</span> (error) {
+        localStorage.removeItem('access_token');
+      }
+    }
+    setLoading(false);
+  };
+
+  <span class="code-keyword">const</span> login = async (username, password) => {
+    <span class="code-keyword">try</span> {
+      <span class="code-keyword">const</span> response = await authAPI.login({ username, password });
+      <span class="code-keyword">const</span> { accessToken, user: userData } = response.data;
+      
+      localStorage.setItem('access_token', accessToken);
+      setUser(userData);
+      
+      <span class="code-keyword">return</span> { success: true };
+    } <span class="code-keyword">catch</span> (error) {
+      <span class="code-keyword">return</span> { 
+        success: false, 
+        error: error.response?.data?.message || 'Login failed' 
+      };
+    }
+  };
+
+  <span class="code-keyword">const</span> value = {
+    user,
+    login,
+    loading,
+    isAuthenticated: !!user
+  };
+
+  <span class="code-keyword">return</span> (
+    &lt;AuthContext.Provider value={value}&gt;
+      {children}
+    &lt;/AuthContext.Provider&gt;
+  );
+};</code></pre>
+            </div>
+          </div>
+
+          <!-- Node.js Code -->
+          <div class="code-content" id="node-code">
+            <div class="code-header">
+              <div class="code-title">auth.middleware.js - Middleware de Autenticación Node.js</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">const</span> jwt = require('jsonwebtoken');
+<span class="code-keyword">const</span> { User } = require('../models');
+
+<span class="code-keyword">const</span> authenticateToken = async (req, res, next) => {
+  <span class="code-keyword">const</span> authHeader = req.headers['authorization'];
+  <span class="code-keyword">const</span> token = authHeader && authHeader.split(' ')[1];
+
+  <span class="code-keyword">if</span> (!token) {
+    <span class="code-keyword">return</span> res.status(401).json({ 
+      error: 'Access token required' 
+    });
+  }
+
+  <span class="code-keyword">try</span> {
+    <span class="code-keyword">const</span> decoded = jwt.verify(token, process.env.JWT_SECRET);
+    <span class="code-keyword">const</span> user = await User.findById(decoded.userId).select('-password');
+    
+    <span class="code-keyword">if</span> (!user) {
+      <span class="code-keyword">return</span> res.status(401).json({ 
+        error: 'User not found' 
+      });
+    }
+
+    req.user = user;
+    next();
+  } <span class="code-keyword">catch</span> (error) {
+    <span class="code-keyword">return</span> res.status(403).json({ 
+      error: 'Invalid token' 
+    });
+  }
+};
+
+module.exports = {
+  authenticateToken
+};</code></pre>
+            </div>
+          </div>
+
+          <!-- Docker Code -->
+          <div class="code-content" id="docker-code">
+            <div class="code-header">
+              <div class="code-title">Dockerfile - Multi-stage Build para Microservicio Java</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-comment"># Multi-stage build for optimized image size</span>
+FROM eclipse-temurin:21-jdk-jammy AS builder
+WORKDIR /app
+
+<span class="code-comment"># Copy Maven files</span>
+COPY pom.xml .
+COPY .mvn .mvn
+COPY mvnw .
+
+<span class="code-comment"># Download dependencies</span>
+RUN ./mvnw dependency:go-offline -B
+
+<span class="code-comment"># Copy source code</span>
+COPY src ./src
+
+<span class="code-comment"># Build application</span>
+RUN ./mvnw clean package -DskipTests
+
+<span class="code-comment"># Runtime stage</span>
+FROM eclipse-temurin:21-jre-jammy
+WORKDIR /app
+
+<span class="code-comment"># Create non-root user for security</span>
+RUN groupadd -r spring && useradd -r -g spring spring
+USER spring
+
+<span class="code-comment"># Copy JAR from build stage</span>
+COPY --from=builder /app/target/*.jar app.jar
+
+<span class="code-comment"># JVM optimization for containers</span>
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
+
+EXPOSE 8080
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]</code></pre>
+            </div>
+          </div>
+
+          <!-- Terraform Code -->
+          <div class="code-content" id="terraform-code">
+            <div class="code-header">
+              <div class="code-title">main.tf - Infraestructura OpenShift con Terraform</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-comment"># Configure the OpenShift provider</span>
+terraform {
+  required_version = <span class="code-string">">= 1.0"</span>
+  required_providers {
+    openshift = {
+      source  = <span class="code-string">"terraform.local/local/openshift"</span>
+      version = <span class="code-string">"~> 1.0"</span>
+    }
+  }
+}
+
+<span class="code-comment"># Project configuration</span>
+resource <span class="code-string">"openshift_project"</span> <span class="code-string">"telecom_field_manager"</span> {
+  metadata {
+    name = <span class="code-string">"field-manager-prod"</span>
+  }
+}
+
+<span class="code-comment"># API Gateway deployment</span>
+resource <span class="code-string">"openshift_deployment_config"</span> <span class="code-string">"api_gateway"</span> {
+  metadata {
+    name      = <span class="code-string">"api-gateway"</span>
+    namespace = openshift_project.telecom_field_manager.metadata[0].name
+  }
+
+  spec {
+    replicas = <span class="code-number">2</span>
+
+    selector = {
+      app = <span class="code-string">"api-gateway"</span>
+    }
+
+    template {
+      metadata = {
+        labels = {
+          app = <span class="code-string">"api-gateway"</span>
+        }
+      }
+
+      spec {
+        container {
+          name  = <span class="code-string">"api-gateway"</span>
+          image = <span class="code-string">"quay.io/telecom/api-gateway:latest"</span>
+
+          port {
+            container_port = <span class="code-number">8080</span>
+          }
+
+          resources {
+            requests = {
+              cpu    = <span class="code-string">"200m"</span>
+              memory = <span class="code-string">"512Mi"</span>
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- SQL Code -->
+          <div class="code-content" id="sql-code">
+            <div class="code-header">
+              <div class="code-title">database_schema.sql - Esquema Oracle para Field Manager</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-comment">-- Tabla de usuarios del sistema</span>
+<span class="code-keyword">CREATE TABLE</span> fm_users (
+    user_id         <span class="code-class">NUMBER</span> <span class="code-keyword">GENERATED ALWAYS AS IDENTITY PRIMARY KEY</span>,
+    username        <span class="code-class">VARCHAR2</span>(50) <span class="code-keyword">NOT NULL UNIQUE</span>,
+    email           <span class="code-class">VARCHAR2</span>(100) <span class="code-keyword">NOT NULL</span>,
+    password_hash   <span class="code-class">VARCHAR2</span>(255) <span class="code-keyword">NOT NULL</span>,
+    created_at      <span class="code-class">TIMESTAMP</span> <span class="code-keyword">DEFAULT</span> CURRENT_TIMESTAMP
+);
+
+<span class="code-comment">-- Tabla de roles</span>
+<span class="code-keyword">CREATE TABLE</span> fm_roles (
+    role_id         <span class="code-class">NUMBER</span> <span class="code-keyword">GENERATED ALWAYS AS IDENTITY PRIMARY KEY</span>,
+    role_name       <span class="code-class">VARCHAR2</span>(50) <span class="code-keyword">NOT NULL UNIQUE</span>
+);
+
+<span class="code-comment">-- Tabla de relación usuarios-roles</span>
+<span class="code-keyword">CREATE TABLE</span> fm_user_roles (
+    user_id         <span class="code-class">NUMBER</span> <span class="code-keyword">NOT NULL</span>,
+    role_id         <span class="code-class">NUMBER</span> <span class="code-keyword">NOT NULL</span>,
+    <span class="code-keyword">PRIMARY KEY</span> (user_id, role_id),
+    <span class="code-keyword">FOREIGN KEY</span> (user_id) <span class="code-keyword">REFERENCES</span> fm_users(user_id),
+    <span class="code-keyword">FOREIGN KEY</span> (role_id) <span class="code-keyword">REFERENCES</span> fm_roles(role_id)
+);</code></pre>
+            </div>
+          </div>
+
+          <!-- OAuth2 Code -->
+          <div class="code-content" id="oauth-code">
+            <div class="code-header">
+              <div class="code-title">OAuth2Config.java - Configuración OAuth2 con Spring Security</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">package</span> <span class="code-class">com.telecom.auth.config</span>;
+
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.context.annotation.Bean</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.context.annotation.Configuration</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.oauth2.client.registration.ClientRegistration</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.oauth2.client.registration.ClientRegistrationRepository</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.oauth2.core.AuthorizationGrantType</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.security.oauth2.core.ClientAuthenticationMethod</span>;
+
+<span class="code-annotation">@Configuration</span>
+<span class="code-keyword">public class</span> <span class="code-class">OAuth2Config</span> {
+
+    <span class="code-annotation">@Bean</span>
+    <span class="code-keyword">public</span> <span class="code-class">ClientRegistrationRepository</span> <span class="code-function">clientRegistrationRepository</span>() {
+        <span class="code-keyword">return new</span> <span class="code-class">InMemoryClientRegistrationRepository</span>(
+            <span class="code-function">cyberArkClientRegistration</span>(),
+            <span class="code-function">googleClientRegistration</span>()
+        );
+    }
+
+    <span class="code-keyword">private</span> <span class="code-class">ClientRegistration</span> <span class="code-function">cyberArkClientRegistration</span>() {
+        <span class="code-keyword">return</span> <span class="code-class">ClientRegistration</span>.<span class="code-function">withRegistrationId</span>(<span class="code-string">"cyberark"</span>)
+            .<span class="code-function">clientId</span>(<span class="code-string">"cyberark-client-id"</span>)
+            .<span class="code-function">clientSecret</span>(<span class="code-string">"cyberark-client-secret"</span>)
+            .<span class="code-function">clientAuthenticationMethod</span>(<span class="code-class">ClientAuthenticationMethod</span>.<span class="code-variable">CLIENT_SECRET_BASIC</span>)
+            .<span class="code-function">authorizationGrantType</span>(<span class="code-class">AuthorizationGrantType</span>.<span class="code-variable">AUTHORIZATION_CODE</span>)
+            .<span class="code-function">redirectUri</span>(<span class="code-string">"{baseUrl}/login/oauth2/code/{registrationId}"</span>)
+            .<span class="code-function">scope</span>(<span class="code-string">"openid", "profile", "email"</span>)
+            .<span class="code-function">authorizationUri</span>(<span class="code-string">"https://cyberark.example.com/oauth2/authorize"</span>)
+            .<span class="code-function">tokenUri</span>(<span class="code-string">"https://cyberark.example.com/oauth2/token"</span>)
+            .<span class="code-function">userInfoUri</span>(<span class="code-string">"https://cyberark.example.com/oauth2/userinfo"</span>)
+            .<span class="code-function">userNameAttributeName</span>(<span class="code-string">"sub"</span>)
+            .<span class="code-function">build</span>();
+    }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Microservicios Code -->
+          <div class="code-content" id="microservices-code">
+            <div class="code-header">
+              <div class="code-title">ApiGatewayConfig.java - Configuración Spring Cloud Gateway</div>
+              <div class="code-actions">
+                <div class="code-action red"></div>
+                <div class="code-action yellow"></div>
+                <div class="code-action green"></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="code-keyword">package</span> <span class="code-class">com.telecom.gateway.config</span>;
+
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.cloud.gateway.route.RouteLocator</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.context.annotation.Bean</span>;
+<span class="code-keyword">import</span> <span class="code-class">org.springframework.context.annotation.Configuration</span>;
+
+<span class="code-annotation">@Configuration</span>
+<span class="code-keyword">public class</span> <span class="code-class">ApiGatewayConfig</span> {
+
+    <span class="code-annotation">@Bean</span>
+    <span class="code-keyword">public</span> <span class="code-class">RouteLocator</span> <span class="code-function">customRouteLocator</span>(<span class="code-class">RouteLocatorBuilder</span> builder) {
+        <span class="code-keyword">return</span> builder.<span class="code-function">routes</span>()
+            .<span class="code-function">route</span>(<span class="code-string">"identity_service"</span>, r -> r
+                .<span class="code-function">path</span>(<span class="code-string">"/api/identity/**"</span>)
+                .<span class="code-function">filters</span>(f -> f
+                    .<span class="code-function">rewritePath</span>(<span class="code-string">"/api/identity/(?&lt;segment>.*)"</span>, <span class="code-string">"/${segment}"</span>)
+                    .<span class="code-function">addRequestHeader</span>(<span class="code-string">"X-Service-Name"</span>, <span class="code-string">"identity"</span>)
+                )
+                .<span class="code-function">uri</span>(<span class="code-string">"lb://identity-service"</span>)
+            )
+            .<span class="code-function">route</span>(<span class="code-string">"field_manager_service"</span>, r -> r
+                .<span class="code-function">path</span>(<span class="code-string">"/api/fm/**"</span>)
+                .<span class="code-function">filters</span>(f -> f
+                    .<span class="code-function">rewritePath</span>(<span class="code-string">"/api/fm/(?&lt;segment>.*)"</span>, <span class="code-string">"/${segment}"</span>)
+                    .<span class="code-function">circuitBreaker</span>(config -> config
+                        .<span class="code-function">setName</span>(<span class="code-string">"fmCircuitBreaker"</span>)
+                        .<span class="code-function">setFallbackUri</span>(<span class="code-string">"forward:/fallback/fm"</span>)
+                    )
+                )
+                .<span class="code-function">uri</span>(<span class="code-string">"lb://field-manager-service"</span>)
+            )
+            .<span class="code-function">build</span>();
+    }
+}</code></pre>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="experience">
+      <section id="experiencia" class="experience">
         <h3><i class="fas fa-briefcase"></i> Experiencia Profesional</h3>
+        
         <div class="job">
           <div class="job-header">
-            <h4>Telecom Argentina – Tech Lead</h4>
+            <div class="job-title-container">
+              <h4>Telecom Argentina – Tech Lead</h4>
+              <span class="job-badge">Actual</span>
+            </div>
             <div class="job-meta">
               <span class="date"><i class="far fa-calendar-alt"></i> Oct 2022 – Actualidad</span>
               <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires (Remoto)</span>
+              <span class="duration"><i class="fas fa-clock"></i> 3 años</span>
             </div>
           </div>
           <div class="job-description">
@@ -126,6 +1708,8 @@
               <li>Implementación de un nuevo microservicio <strong>api-sfs-mule</strong> en Java 21 para la consulta autenticada de datos vía OAuth2.</li>
               <li>Creación del microservicio <strong>Identity</strong> en Java 21, encargado de la autenticación federada con CyberArk (SSO - OAuth2.0) y fallback a LDAP según ambiente.</li>
               <li>Responsable de los despliegues a producción de manera manual, y actualmente trabajando junto al equipo DevOps en la implementación de CI/CD para automatizar despliegues, rollback y ejecución controlada de scripts de base de datos.</li>
+              <li>Implementación de arquitectura de microservicios con Spring Cloud Gateway, Service Discovery y Config Server.</li>
+              <li>Optimización de performance mediante caching distribuido con Redis y connection pooling avanzado.</li>
             </ul>
             <div class="project">
               <h5>Microservicio api-gid:</h5>
@@ -134,16 +1718,35 @@
                 <li>Gestión de sesiones y validación JWT</li>
                 <li>Fallback a LDAP en ambientes habilitados</li>
                 <li>Integración con FM (Java 11 + JSP + Spring Security)</li>
+                <li>Implementación de circuit breaker con Resilience4j</li>
+                <li>Métricas customizadas para Micrometer y Prometheus</li>
               </ul>
+            </div>
+            <div class="tech-tags">
+              <span class="tech-tag">Java 21</span>
+              <span class="tech-tag">Spring Boot 3</span>
+              <span class="tech-tag">Spring Security</span>
+              <span class="tech-tag">OAuth2</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">CyberArk</span>
+              <span class="tech-tag">Microservicios</span>
+              <span class="tech-tag">OpenShift</span>
+              <span class="tech-tag">Dynatrace</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Oracle</span>
+              <span class="tech-tag">GitLab CI/CD</span>
             </div>
           </div>
         </div>
+
         <div class="job">
           <div class="job-header">
             <h4>CaleGroup – Tech Lead</h4>
             <div class="job-meta">
               <span class="date"><i class="far fa-calendar-alt"></i> Jun 2021 – Sep 2022</span>
               <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires (Remoto)</span>
+              <span class="duration"><i class="fas fa-clock"></i> 1 año 4 meses</span>
             </div>
           </div>
           <div class="job-description">
@@ -156,14 +1759,26 @@
               <li>Refactor completo del sistema de fichas clínicas, con almacenamiento seguro de historias médicas y compatibilidad multiplataforma.</li>
               <li>Optimización del frontend móvil y de escritorio, asegurando compatibilidad con múltiples navegadores y dispositivos médicos certificados.</li>
             </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">.NET Core</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">WebRTC</span>
+              <span class="tech-tag">OpenVidu</span>
+              <span class="tech-tag">Geolocalización</span>
+              <span class="tech-tag">Arquitectura Hexagonal</span>
+              <span class="tech-tag">SQL Server</span>
+              <span class="tech-tag">Docker</span>
+            </div>
           </div>
         </div>
+
         <div class="job">
           <div class="job-header">
             <h4>IBM – Tech Lead (Cliente: ICBC – Proyecto YOY)</h4>
             <div class="job-meta">
               <span class="date"><i class="far fa-calendar-alt"></i> Mar 2020 – May 2021</span>
               <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+              <span class="duration"><i class="fas fa-clock"></i> 1 año 3 meses</span>
             </div>
           </div>
           <div class="job-description">
@@ -173,35 +1788,62 @@
               <li>Migración de servicios heredados a arquitectura de microservicios, asegurando escalabilidad y mantenibilidad.</li>
               <li>Coordinación directa con células dependientes como PFM y Transacciones, garantizando integración funcional y técnica.</li>
               <li>Participación en el diseño inicial de la arquitectura de microfrontends para el frontend completo de la App YOY.</li>
+              <li>Implementación de OAuth2 flows para integración con proveedores de identidad externos.</li>
             </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">Ionic</span>
+              <span class="tech-tag">Microservicios</span>
+              <span class="tech-tag">Microfrontends</span>
+              <span class="tech-tag">OAuth2</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Docker</span>
+            </div>
           </div>
         </div>
+
         <div class="job">
           <div class="job-header">
             <h4>BBVA Argentina – Tech Lead</h4>
             <div class="job-meta">
               <span class="date"><i class="far fa-calendar-alt"></i> Mar 2015 – Mar 2020</span>
               <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+              <span class="duration"><i class="fas fa-clock"></i> 5 años</span>
             </div>
           </div>
           <div class="job-description">
             <ul>
               <li>Responsable del desarrollo de soluciones de validación biométrica para desbloqueo de cajas de ahorro utilizando VeriFinger y VeriLook (React web + React Native móvil).</li>
               <li>Implementación de validación de identidad con RENAPER mediante escaneo de DNI/DNE, lectura MRZ, OCR y firma digital.</li>
-              <li>Desarrollo de módulos de seguros y microseguros, con backend en Java 11 y almacenamiento mixto en Oracle y MongoDB.</li>
+              <li>Desarrollo de módulos de seguros y microseguros, con backend en Java 11 y almacenamiento mixto en Oracle и MongoDB.</li>
               <li>Migración de sistemas heredados como GO y Homebanking a microservicios basados en Spring Boot.</li>
               <li>Automatización de despliegues con Jenkins, OpenShift y Terraform, configurando pipelines CI/CD robustos.</li>
               <li>Validación RENAPER (DNI / DNE) con OCR + firma digital</li>
               <li>Migración de Frances GO y Homebanking a arquitectura de microservicios</li>
             </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Java 11</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Jenkins</span>
+              <span class="tech-tag">OpenShift</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Oracle</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Biometría</span>
+            </div>
           </div>
         </div>
+
         <div class="job">
           <div class="job-header">
             <h4>Banco Hipotecario – Desarrollador Senior / Tech Lead</h4>
             <div class="job-meta">
               <span class="date"><i class="far fa-calendar-alt"></i> Abr 2013 – Feb 2015</span>
               <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+              <span class="duration"><i class="fas fa-clock"></i> 1 año 11 meses</span>
             </div>
           </div>
           <div class="job-description">
@@ -213,14 +1855,24 @@
               <li>Desarrollo de funcionalidades para el módulo de créditos hipotecarios y consulta de saldos online.</li>
               <li>Implementación de módulos de créditos hipotecarios</li>
             </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Java 8</span>
+              <span class="tech-tag">Spring MVC</span>
+              <span class="tech-tag">AngularJS</span>
+              <span class="tech-tag">PrimeFaces</span>
+              <span class="tech-tag">Oracle</span>
+              <span class="tech-tag">JSP</span>
+            </div>
           </div>
         </div>
+
         <div class="job">
           <div class="job-header">
             <h4>Accenture – Desarrollador de Software (Cliente: MetroGas)</h4>
             <div class="job-meta">
               <span class="date"><i class="far fa-calendar-alt"></i> Mar 2010 – Mar 2013</span>
               <span class="location"><i class="fas fa-map-marker-alt"></i> Buenos Aires</span>
+              <span class="duration"><i class="fas fa-clock"></i> 3 años</span>
             </div>
           </div>
           <div class="job-description">
@@ -232,12 +1884,75 @@
               <li>Desarrollo de medidas de seguridad para datos sensibles: cifrado AES/3DES, hashing SHA-1/SHA-256, anonimización, CSRF y tokenización de transacciones.</li>
               <li>Stack tecnológico: JSP, Struts 1.x, JavaScript, Oracle DB, Apache Tomcat, JBoss 4.x y WebLogic.</li>
             </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Java 6</span>
+              <span class="tech-tag">Struts</span>
+              <span class="tech-tag">JSP</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Oracle</span>
+              <span class="tech-tag">Tomcat</span>
+              <span class="tech-tag">Seguridad</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="education">
+      <section id="educacion" class="education">
         <h3><i class="fas fa-graduation-cap"></i> Educación y Certificaciones</h3>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fab fa-java"></i></div>
+            <div class="timeline-content">
+              <h4>EducacionIT</h4>
+              <span class="date"><i class="far fa-calendar-alt"></i> Abr 2014 – Oct 2015</span>
+              <p>Java Developer & SQL Server.  
+              Formación en Java SE 7, JDBC, JSP y patrones de diseño.  
+              Preparación para la certificación <strong>Oracle Certified Professional, Java SE 7 Programmer (OCPJP 7)</strong>.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
+            <div class="timeline-content">
+              <h4>Oracle University</h4>
+              <span class="date"><i class="far fa-calendar-alt"></i> 2015</span>
+              <p>Certificación oficial <strong>OCPJP 7</strong> – Programador Profesional Java SE.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-code"></i></div>
+            <div class="timeline-content">
+              <h4>EducacionIT</h4>
+              <span class="date"><i class="far fa-calendar-alt"></i> 2016 – 2018</span>
+              <p>Java EE, Hibernate y Spring Framework.  
+              Desarrollo de backend empresarial y manejo de persistencia.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fab fa-docker"></i></div>
+            <div class="timeline-content">
+              <h4>Platzi / Udemy</h4>
+              <span class="date"><i class="far fa-calendar-alt"></i> 2019 – 2021</span>
+              <p>Arquitectura de Microservicios con Spring Boot 2.x, Docker, Kubernetes y Kafka.  
+              Construcción y despliegue de sistemas distribuidos.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-cloud"></i></div>
+            <div class="timeline-content">
+              <h4>Platzi / Red Hat</h4>
+              <span class="date"><i class="far fa-calendar-alt"></i> 2021 – 2024 (en curso)</span>
+              <p>Spring Cloud, OpenShift (OCP4) y DevOps CI/CD.  
+              Despliegue de microservicios cloud-native en entornos empresariales.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resto de educación -->
         <div class="education-item">
           <h4>Pontificia Universidad Católica Argentina (UCA)</h4>
           <div class="education-meta">
@@ -245,6 +1960,7 @@
             <span class="date"><i class="far fa-calendar-alt"></i> Abr 2019 – Dic 2025 (en curso)</span>
           </div>
         </div>
+
         <div class="education-item">
           <h4>Universidad Siglo 21</h4>
           <div class="education-meta">
@@ -252,13 +1968,7 @@
             <span class="date"><i class="far fa-calendar-alt"></i> May 2016 – Abr 2017</span>
           </div>
         </div>
-        <div class="education-item">
-          <h4>EducacionIT</h4>
-          <div class="education-meta">
-            <span class="degree">SQL Server</span>
-            <span class="date"><i class="far fa-calendar-alt"></i> Abr 2014 – Oct 2014</span>
-          </div>
-        </div>
+
         <div class="education-item">
           <h4>Universitas</h4>
           <div class="education-meta">
@@ -266,6 +1976,7 @@
             <span class="date"><i class="far fa-calendar-alt"></i> 2012 – 2014</span>
           </div>
         </div>
+
         <div class="education-item">
           <h4>BS Informática</h4>
           <div class="education-meta">
@@ -274,6 +1985,7 @@
             <span class="grade">Nota: 9 – Administración, DNS físico y virtual</span>
           </div>
         </div>
+
         <div class="education-item">
           <h4>Instituto Tecnológico Argentino</h4>
           <div class="education-meta">
@@ -284,41 +1996,171 @@
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="contact-section">
-          <h3><i class="fas fa-address-card"></i> Contacto</h3>
-          <div class="contact-info">
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> La Plata, Provincia de Buenos Aires</p>
-            <p><i class="fas fa-mobile-alt"></i> <strong>Teléfono:</strong> +54 9 11 3296 7779</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> busonlautaro@gmail.com</p>
-            <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/laubuson/" target="_blank">https://www.linkedin.com/in/laubuson/</a></p>
+    <footer id="contacto">
+      <div class="container">
+        <div class="footer-content">
+          <div class="contact-section">
+            <h3><i class="fas fa-address-card"></i> Contacto</h3>
+            <div class="contact-info">
+              <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> La Plata, Provincia de Buenos Aires</p>
+              <p><i class="fas fa-mobile-alt"></i> <strong>Teléfono:</strong> <a href="tel:+5491132967779">+54 9 11 3296 7779</a></p>
+              <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:busonlautaro@gmail.com">busonlautaro@gmail.com</a></p>
+              <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/laubuson/" target="_blank" rel="noopener">linkedin.com/in/laubuson</a></p>
+            </div>
+            
+            <div class="action-buttons">
+              <a href="mailto:busonlautaro@gmail.com" class="action-btn">
+                <i class="fas fa-envelope"></i>Enviar Email
+              </a>
+              <a href="tel:+5491132967779" class="action-btn">
+                <i class="fas fa-phone"></i>Llamar
+              </a>
+              <a href="https://wa.me/5491132967779" class="action-btn whatsapp">
+                <i class="fab fa-whatsapp"></i>WhatsApp
+              </a>
+            </div>
           </div>
         </div>
         
-        <div class="qr-section">
-          <h3><i class="fas fa-qrcode"></i> Escanear Contacto</h3>
-          <div class="qr-container">
-            <div class="qr-card">
-              <img src="QR_WhatsApp.png" alt="WhatsApp QR">
-              <div class="qr-label">WhatsApp</div>
-            </div>
-            <div class="qr-card">
-              <img src="QR_Email_Gmail.png" alt="Gmail QR">
-              <div class="qr-label">Gmail</div>
-            </div>
-            <div class="qr-card">
-              <img src="QR_LinkedIn.png" alt="LinkedIn QR">
-              <div class="qr-label">LinkedIn</div>
-            </div>
-          </div>
+        <div class="credits">
+          <p>© 2024 Miguel Lautaro Buson - Todos los derechos reservados</p>
         </div>
-      </div>
-      
-      <div class="credits">        
-        <p>© 2023 Miguel Lautaro Buson - Todos los derechos reservados</p>
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animación para habilidades
+      const skillCategories = document.querySelectorAll('.skill-category');
+      const skillItems = document.querySelectorAll('.skill-item');
+      const skillProgresses = document.querySelectorAll('.skill-progress');
+      const skillListItems = document.querySelectorAll('.skill-category li');
+
+      function animateSkills() {
+        skillCategories.forEach((category, index) => {
+          setTimeout(() => {
+            category.classList.add('visible');
+          }, index * 200);
+        });
+
+        skillItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 100 + 600);
+        });
+
+        skillProgresses.forEach((progress, index) => {
+          setTimeout(() => {
+            progress.classList.add('animated');
+          }, index * 50 + 1000);
+        });
+
+        skillListItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 50 + 800);
+        });
+      }
+
+      // Animación para experiencias
+      function animateExperiences() {
+        const jobs = document.querySelectorAll('.job');
+        jobs.forEach((job, index) => {
+          setTimeout(() => {
+            job.classList.add('visible');
+          }, index * 300);
+        });
+      }
+
+      // Animación para educación
+      function animateEducation() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const educationItems = document.querySelectorAll('.education-item');
+        
+        timelineItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 400);
+        });
+
+        educationItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 200 + 2000);
+        });
+      }
+
+      // Observers para animar cuando las secciones son visibles
+      const skillsSection = document.getElementById('habilidades');
+      const experienceSection = document.getElementById('experiencia');
+      const educationSection = document.getElementById('educacion');
+
+      const observerOptions = { threshold: 0.3 };
+
+      const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateSkills();
+            skillsObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const experienceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateExperiences();
+            experienceObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const educationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateEducation();
+            educationObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      skillsObserver.observe(skillsSection);
+      experienceObserver.observe(experienceSection);
+      educationObserver.observe(educationSection);
+
+      // Pestañas de código
+      const tabs = document.querySelectorAll('.code-tab');
+      const contents = document.querySelectorAll('.code-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          
+          tab.classList.add('active');
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(`${tabId}-code`).classList.add('active');
+        });
+      });
+      
+      // Scroll suave
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Actualizar año del copyright
+      document.querySelector('.credits p').textContent = `© ${new Date().getFullYear()} Miguel Lautaro Buson - Todos los derechos reservados`;
+    });
+  </script>
 </body>
 </html>
